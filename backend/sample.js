@@ -5,7 +5,7 @@ const modelName = "text-embedding-3-large"; // This is typically the model ID, n
 
 export async function main() {
 
-  const apiKey = "lAcfByTYluM8rajLsYgqFdnVvdnoNfqQn1840j7uf4KZZpjBnWmTJQQJ99BFACi0881XJ3w3AAABACOG5Liq";
+  const apiKey = process.env.AZURE_OPENAI_API_KEY;
   const apiVersion = "2024-04-01-preview";
   const deployment = "text-embedding-3-large"; // This should match your deployment name in Azure
   const options = { endpoint, apiKey, deployment, apiVersion }

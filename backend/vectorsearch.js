@@ -4,7 +4,7 @@ import { AzureOpenAI } from "openai";
 // Declare all constants before they are used in the 'options' object
 const endpoint = "https://real-estate-agent.openai.azure.com/";
 const modelName = "gpt-4o"; // This modelName is used for chat/completion, but your deployment is for embeddings
-const apiKey = "lAcfByTYluM8rajLsYgqFdnVvdnoNfqQn1840j7uf4KZZpjBnWmTJQQJ99BFACi0881XJ3w3AAABACOG5Liq";
+const apiKey = process.env.AZURE_OPENAI_API_KEY;
 const apiVersion = "2024-04-01-preview";
 const deployment = "text-embedding-3-large"; // This should be your Azure deployment name for embeddings
 

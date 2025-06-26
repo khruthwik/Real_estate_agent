@@ -8,7 +8,7 @@ const modelName = "gpt-4o";
 
 // Your API key should ideally be loaded from environment variables using dotenv
 // For demonstration, it's hardcoded, but consider process.env.AZURE_OPENAI_API_KEY
-const apiKey = "lAcfByTYluM8rajLsYgqFdnVvdnoNfqQn1840j7uf4KZZpjBnWmTJQQJ99BFACi0881XJ3w3AAABACOG5Liq";
+const apiKey = process.env.AZURE_OPENAI_API_KEY;
 const apiVersion = "2024-04-01-preview";
 // This 'deployment' name MUST exactly match what you configured in Azure OpenAI Studio for gpt-4o
 const deployment = "gpt-4o";
