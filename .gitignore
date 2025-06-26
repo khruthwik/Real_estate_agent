@@ -1,0 +1,12 @@
+# Ignore everything by default
+*
+
+# Allow folders
+!*/
+
+# Allow backend and frontend folders and their contents
+!backend/**
+!frontend/**
+
+# Track this file too
+!.gitignore
