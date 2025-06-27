@@ -1,73 +1,91 @@
+import React, { useState } from 'react';
 
-import { useState } from 'react';
-import axios from 'axios';
-import { MessageSquare, Send } from 'lucide-react';
+export default function SearchBroker() {
+  const [msgLog, setMsgLog] = useState([
+    { from: 'bot', text: '👋 Hi, Im your AI real-estate broker. How can I help you today?' }
+  ]);
+  const [inbox, setInbox] = useState('');
 
-export default function SearchDashboard() {
-  const [messages, setMessages] = useState([]);
-  const [input, setInput] = useState('');
+  const send = async () => {
+    if (!inbox.trim()) return;
+    const userMsg = inbox;
+    setMsgLog(log => [...log, { from: 'user', text: userMsg }]);
+    setInbox('');
 
-  const sendQuery = async e => {
-    e.preventDefault();
-    if (!input.trim()) return;
-    // add user message
-    setMessages(m => [...m, { from: 'user', text: input }]);
-    const q = input;
-    setInput('');
-    // call backend
-    const { data } = await axios.post(
-      `http://localhost:5000/api/search`,
-      { query: q }
-    );
-    // format results
-    const text =
-      data.length === 0
-        ? 'No matches found.'
-        : data
-            .map(
-              p =>
-                `🏠 ${p.bedrooms}br/${p.bathrooms}ba in ${p.location}, $${p.price} — ${p.info_text}`
-            )
-            .join('\n\n');
-    setMessages(m => [...m, { from: 'bot', text }]);
+    // call /api/search first
+    const searchRes = await fetch('/api/search', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: userMsg })
+    });
+    const { exact, recommendations, ranked } = await searchRes.json();
+
+    let reply;
+    if (exact.length) {
+      reply = `I found ${exact.length} exact match${
+        exact.length > 1 ? 'es' : ''
+      }.`;
+    } else {
+      reply = `No exact matches—here are some ${recommendations.length} you might like.`;
+    }
+
+    setMsgLog(log => [...log, { from: 'bot', text: reply }]);
+
+    // show property cards
+    const display = (exact.length ? ranked : recommendations).map(p => ({
+      from: 'bot',
+      text: `${p.title} — ¥${p.price}/mo, ${p.bedrooms}br · ${p.bathrooms}ba, ${
+        p.features.petFriendly ? 'Pet-friendly, ' : ''
+      }${p.features.parking ? 'Parking' : ''}`
+    }));
+    setMsgLog(log => [...log, ...display]);
+
+    // if user wants to ask arbitrary things:
+    if (!exact.length && !recommendations.length) {
+      // fallback to raw chat
+      const chatRes = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: userMsg })
+      });
+      const { reply: chatReply } = await chatRes.json();
+      setMsgLog(log => [...log, { from: 'bot', text: chatReply }]);
+    }
   };
 
   return (
-    <div className="h-screen flex flex-col bg-gray-100">
-      <header className="p-4 bg-white border-b flex items-center">
-        <MessageSquare className="mr-2" /> 
-        <h1 className="text-xl font-semibold">Rental Chat Search</h1>
-      </header>
-      <div className="flex-1 overflow-auto p-4 space-y-4">
-        {messages.map((msg, i) => (
+    <div className="max-w-lg mx-auto bg-white rounded-xl shadow p-4 space-y-4">
+      <div className="h-64 overflow-y-auto border p-2 space-y-2">
+        {msgLog.map((m, i) => (
           <div
             key={i}
-            className={
-              msg.from === 'user'
-                ? 'text-right'
-                : 'text-left bg-white p-2 rounded-lg shadow'
-            }
+            className={`flex ${m.from === 'bot' ? 'justify-start' : 'justify-end'}`}
           >
-            {msg.text.split('\n').map((line, j) => (
-              <p key={j}>{line}</p>
-            ))}
+            <div
+              className={`px-4 py-2 rounded-lg ${
+                m.from === 'bot' ? 'bg-gray-200' : 'bg-blue-400 text-white'
+              }`}
+            >
+              {m.text}
+            </div>
           </div>
         ))}
       </div>
-      <form
-        onSubmit={sendQuery}
-        className="p-4 bg-white border-t flex items-center space-x-2"
-      >
+      <div className="flex space-x-2">
         <input
-          className="flex-1 border rounded-lg px-4 py-2"
-          value={input}
-          onChange={e => setInput(e.target.value)}
-          placeholder="Describe what you’re looking for…"
+          className="flex-1 border rounded-l px-3 py-2 focus:outline-none"
+          value={inbox}
+          onChange={e => setInbox(e.target.value)}
+          onKeyDown={e => e.key === 'Enter' && send()}
+          placeholder="Ask me about properties…"
         />
-        <button type="submit" className="p-2 bg-blue-600 rounded-full text-white">
-          <Send />
+        <button
+          onClick={send}
+          className="bg-blue-600 text-white px-4 rounded-r hover:bg-blue-700"
+        >
+          Send
         </button>
-      </form>
+      </div>
     </div>
   );
 }

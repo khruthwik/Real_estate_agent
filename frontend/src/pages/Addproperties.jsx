@@ -1,141 +1,102 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { toast, ToastContainer } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import React, { useRef } from 'react';
 
 export default function AddProperty() {
-  const [form, setForm] = useState({
-    title: '',
-    address: '',
-    price: '',
-    type: '',
-    bedrooms: '',
-    bathrooms: '',
-    imageUrl: '',
-    description: '',
-    petFriendly: false,
-    parking: false
-  });
+  const formRef = useRef(null);
 
-  const navigate = useNavigate();
-
-  const handleChange = e => {
-    const { name, value, type, checked } = e.target;
-    setForm(f => ({
-      ...f,
-      [name]: type === 'checkbox' ? checked : value
-    }));
-  };
-
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const form = formRef.current;
+    if (!form) return;
 
-    const res = await fetch('http://localhost:5000/api/properties', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        title: form.title,
-        address: form.address,
-        price: Number(form.price),
-        type: form.type,
-        bedrooms: Number(form.bedrooms),
-        bathrooms: Number(form.bathrooms),
-        imageUrl: form.imageUrl,
-        description: form.description,
-        features: {
-          petFriendly: form.petFriendly,
-          parking: form.parking
-        }
-      })
-    });
+    const data = new FormData(form);
+    const payload = {
+      title: data.get('title'),
+      address: data.get('address'),
+      price: Number(data.get('price')),
+      type: data.get('type'),
+      bedrooms: Number(data.get('bedrooms')),
+      bathrooms: Number(data.get('bathrooms')),
+      features: {
+        petFriendly: form.elements.petFriendly.checked,
+        parking: form.elements.parking.checked,
+      },
+      description: data.get('description'),
+      imageUrl: data.get('imageUrl'),
+      info_vector: [], // populate if needed
+      createdAt: new Date().toISOString(),
+    };
 
-    if (res.ok) {
-      toast.success('Property added successfully!');
-      navigate('/');
-    } else {
-      console.error(await res.json());
-      alert('Error saving property');
+    try {
+      const res = await fetch('http://localhost:5000/api/properties', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+
+      if (res.ok) {
+        alert('Property added successfully!');
+        form.reset();
+      } else {
+        const err = await res.json();
+        console.error(err);
+        alert('Error saving property: ' + (err.error || res.statusText));
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Network error.');
     }
   };
 
-//   is git working.
-
-  const fields = [
-    { label: 'Title', name: 'title', type: 'text' },
-    { label: 'Address', name: 'address', type: 'text' },
-    { label: 'Price ($/mo)', name: 'price', type: 'number' },
-    { label: 'Type', name: 'type', type: 'text' },
-    { label: 'Bedrooms', name: 'bedrooms', type: 'number' },
-    { label: 'Bathrooms', name: 'bathrooms', type: 'number' },
-    { label: 'Image URL', name: 'imageUrl', type: 'text' }
-  ];
-
   return (
-    <div className="flex-1 p-8 overflow-auto bg-gray-950">
-      <ToastContainer />
-      <div className="bg-black/40 p-10 rounded-3xl max-w-3xl mx-auto animate-float-in">
-        <h2 className="text-3xl font-bold text-gray-50 mb-8">
-          Add New Property
-        </h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
-          {fields.map(({ label, name, type }) => (
+    <div className="min-h-screen bg-gray-100 flex items-center justify-center p-6">
+      <div className="w-full max-w-lg bg-white rounded-3xl shadow-lg p-8">
+        <h1 className="text-3xl font-semibold text-gray-800 mb-6">Add New Property</h1>
+        <form ref={formRef} onSubmit={handleSubmit} className="space-y-5">
+          {[
+            { label: 'Title', name: 'title', type: 'text' },
+            { label: 'Address', name: 'address', type: 'text' },
+            { label: 'Price ($/mo)', name: 'price', type: 'number' },
+            { label: 'Type', name: 'type', type: 'text' },
+            { label: 'Bedrooms', name: 'bedrooms', type: 'number' },
+            { label: 'Bathrooms', name: 'bathrooms', type: 'number' },
+            { label: 'Image URL', name: 'imageUrl', type: 'url' },
+          ].map(({ label, name, type }) => (
             <div key={name}>
-              <label className="block text-gray-300 mb-1">
-                {label}
-              </label>
+              <label className="block text-gray-700 mb-1">{label}</label>
               <input
                 name={name}
-                value={form[name]}
-                onChange={handleChange}
                 type={type}
-                className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-xl text-gray-100"
                 required
+                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
           ))}
 
-          {/* Feature Checkboxes */}
-          <div className="flex gap-8">
-            <label className="text-gray-300 flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="petFriendly"
-                checked={form.petFriendly}
-                onChange={handleChange}
-                className="accent-green-500"
-              />
-              Pet Friendly
+          <div className="flex items-center space-x-6">
+            <label className="inline-flex items-center">
+              <input type="checkbox" name="petFriendly" className="form-checkbox h-5 w-5 text-green-500" />
+              <span className="ml-2 text-gray-700">Pet Friendly</span>
             </label>
-            <label className="text-gray-300 flex items-center gap-2">
-              <input
-                type="checkbox"
-                name="parking"
-                checked={form.parking}
-                onChange={handleChange}
-                className="accent-blue-500"
-              />
-              Parking Available
+            <label className="inline-flex items-center">
+              <input type="checkbox" name="parking" className="form-checkbox h-5 w-5 text-blue-500" />
+              <span className="ml-2 text-gray-700">Parking Available</span>
             </label>
           </div>
 
-          {/* Description */}
           <div>
-            <label className="block text-gray-300 mb-1">
-              Description
-            </label>
+            <label className="block text-gray-700 mb-1">Description</label>
             <textarea
               name="description"
-              value={form.description}
-              onChange={handleChange}
               rows="4"
-              className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-xl text-gray-100"
+              required
+              className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
               placeholder="Describe features..."
             />
           </div>
 
           <button
             type="submit"
-            className="w-full py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl"
+            className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl font-medium transition"
           >
             Save Property
           </button>
