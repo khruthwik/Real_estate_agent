@@ -1,11 +1,8 @@
 import 'dotenv/config';
 import { AzureOpenAI } from 'openai';
 
-const endpoint = "https://real-estate-agent.openai.azure.com/";
-const modelName = "gpt-4o"; // This modelName is used for chat/completion, but your deployment is for embeddings
-const apiKey = "lAcfByTYluM8rajLsYgqFdnVvdnoNfqQn1840j7uf4KZZpjBnWmTJQQJ99BFACi0881XJ3w3AAABACOG5Liq";
-const apiVersion = "2024-04-01-preview";
-const deployment = "gpt-4o"; // This should be your Azure deployment name for embeddings
+const apiKey = process.env.MONGODB_URI;
+
 
 // Now, define the options object using the declared constants
 const options = { endpoint, apiKey, deployment, apiVersion };
