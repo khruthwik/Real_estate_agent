@@ -13,6 +13,8 @@ import LeasingDashboard from './pages/Dashboard';
 import ChatInterface from './pages/Chat';
 import PropertyPortfolioSection from './pages/Apartments';
 import AddProperty from './pages/Addproperties'; // ✅ Make sure this path matches your file location
+import BrokerDashboard from './pages/Brokercal';
+import ScheduleEventForm from './pages/Schedule';
 
 function App() {
   return (
@@ -30,6 +32,9 @@ function App() {
         <Route path="/Chatpage" element={<ChatInterface />} />
         <Route path="/property-portfolio" element={<PropertyPortfolioSection />} />
         <Route path="/add-property" element={<AddProperty />} />
+        <Route path="/calendar" element={<BrokerDashboard />} />
+
+         <Route path="/schedule" element={<ScheduleEventForm />} />
 
         {/* optional fallback route */}
         {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}

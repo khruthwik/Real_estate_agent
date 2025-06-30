@@ -21,6 +21,7 @@ import {
 // Import ALL your actual page components
 import AddProperty from './Addproperties'; // The actual AddProperty form component
 import PropertyPortfolioSection from './Apartments'; // The actual Property Portfolio page component
+import Brokercall from './Brokercal'; // The actual Calendar page component
 
 // --- Placeholder for other pages (you'll replace these with your actual page components) ---
 const MarketAnalyticsSection = () => (
@@ -143,7 +144,7 @@ export default function StunningLeasingDashboard() {
     { icon: ClipboardList, label: 'Leasing Requests', path: '/' },
     { icon: FilePlus, label: 'Add Properties', path: '/add-property' },
     { icon: Home, label: 'Property Portfolio', path: '/property-portfolio' },
-    { icon: Grid, label: 'Market Analytics', path: '/market-analytics' },
+    { icon: Calendar, label: 'Calendar', path: '/calendar' },
     { icon: TrendingUp, label: 'Revenue Reports', path: '/revenue-reports' }
   ];
 
@@ -200,14 +201,14 @@ export default function StunningLeasingDashboard() {
         <header className="bg-black/60 backdrop-blur-xl border-b border-gray-800 px-8 py-6 shadow-xl">
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-4xl font-extrabold text-gray-50 tracking-tight leading-tight">
+              <h1 className="text-5xl text-gray-50 tracking-tight leading-tight font-thin">
                 {activeSection} {/* Dynamic Header Title */}
               </h1>
-              <p className="text-gray-400 mt-2 text-lg font-light">
+              <p className="text-gray-400 mt-2 text-lg font-thin">
                 {activeSection === 'Leasing Requests' && 'Efficiently manage all client inquiries'}
                 {activeSection === 'Add Properties' && 'List new properties with ease'}
                 {activeSection === 'Property Portfolio' && 'Browse and manage your entire property catalog'}
-                {activeSection === 'Market Analytics' && 'Gain valuable insights into market trends'}
+                {activeSection === 'Calendar' && 'Efficiently manage all client appointments and view daily schedules'}
                 {activeSection === 'Revenue Reports' && 'Track and analyze your leasing revenue'}
               </p>
             </div>
@@ -252,7 +253,7 @@ export default function StunningLeasingDashboard() {
         </header>
 
         {/* Conditional Content Rendering based on activeSection */}
-        <main className="p-8 overflow-auto flex-1">
+       <main className={`flex-1 h-auto ${activeSection === 'Leasing Requests' ? 'p-8' : ''}`}>
           {activeSection === 'Leasing Requests' && (
             view === 'table' ? (
               <div className="bg-black/40 backdrop-blur-xl rounded-3xl border border-gray-800 overflow-hidden shadow-3xl">
@@ -420,7 +421,14 @@ export default function StunningLeasingDashboard() {
           {activeSection === 'Add Properties' && <AddProperty />} {/* Renders the actual AddProperty component */}
           {activeSection === 'Property Portfolio' && <PropertyPortfolioSection />} {/* Renders the actual PropertyPortfolioSection */}
           {activeSection === 'Market Analytics' && <MarketAnalyticsSection />}
-          {activeSection === 'Revenue Reports' && <RevenueReportsSection />}
+          <div>
+            {activeSection === 'Calendar' && (
+             <div className="">
+              <Brokercall />
+            </div>
+          )}
+          </div>
+          
         </main>
       </div>
 

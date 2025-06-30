@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const Property = require('./models/Property');
 const { extractSlots } = require('./extractor');
 const { rankByVector } = require('./vectorsearch');
-
+const eventRoutes = require('./routes/events');
 async function main() {
   // 1. Connect & init indexes
   await mongoose.connect(process.env.MONGO_URI, {
@@ -60,6 +60,8 @@ async function main() {
       res.status(500).json({ error: err.message });
     }
   });
+
+  app.use('/api/events', eventRoutes);
 
   // 3. /api/chat: raw broker persona fallback
   app.post('/api/chat', async (req, res) => {
