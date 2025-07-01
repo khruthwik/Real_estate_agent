@@ -91,7 +91,7 @@ const getSectionFromPath = (path) => {
     case '/':
       return 'Leasing Requests';
     case '/add-property':
-      return 'Add Properties';
+      return 'Manage Properties';
     case '/property-portfolio':
       return 'Property Portfolio';
     case '/market-analytics':
@@ -142,7 +142,7 @@ export default function StunningLeasingDashboard() {
   // Define sidebar navigation items with their target paths and corresponding labels
   const navItems = [
     { icon: ClipboardList, label: 'Leasing Requests', path: '/' },
-    { icon: FilePlus, label: 'Add Properties', path: '/add-property' },
+    { icon: FilePlus, label: 'Manage Properties', path: '/add-property' },
     { icon: Home, label: 'Property Portfolio', path: '/property-portfolio' },
     { icon: Calendar, label: 'Calendar', path: '/calendar' },
     { icon: TrendingUp, label: 'Revenue Reports', path: '/revenue-reports' }
@@ -162,13 +162,13 @@ export default function StunningLeasingDashboard() {
       <aside className="w-72 bg-black/70 backdrop-blur-xl border-r border-gray-800 flex-shrink-0 relative z-10 shadow-2xl">
         <div className="px-6 py-6 flex items-center border-b border-gray-800">
           <div className="p-2 bg-gray-800 rounded-lg shadow-inner-xl">
-            <Building className="w-6 h-6 text-gray-100" />
+            <Building className="w-10 h-10 text-gray-100" />
           </div>
           <div className="ml-4">
-            <span className="text-2xl font-extrabold text-gray-50 tracking-tight">
-              EliteRealty
+            <span className="text-2xl text-gray-50 tracking-tight">
+              不動産管理会社
             </span>
-            <p className="text-xs text-gray-400 font-light">Premium Leasing Solutions</p>
+            <p className="text-xs text-gray-400 font-extralight">Premium Leasing Solutions</p>
           </div>
         </div>
         <nav className="p-6 space-y-2">
@@ -189,7 +189,7 @@ export default function StunningLeasingDashboard() {
               }`}
             >
               <item.icon className="w-5 h-5 mr-3 group-hover:scale-110 transition-transform" />
-              <span className="font-medium text-lg">{item.label}</span>
+              <span className="text-xl font-thin ">{item.label}</span>
             </a>
           ))}
         </nav>
@@ -206,7 +206,7 @@ export default function StunningLeasingDashboard() {
               </h1>
               <p className="text-gray-400 mt-2 text-lg font-thin">
                 {activeSection === 'Leasing Requests' && 'Efficiently manage all client inquiries'}
-                {activeSection === 'Add Properties' && 'List new properties with ease'}
+                {activeSection === 'Manage Properties' && 'List new properties with ease'}
                 {activeSection === 'Property Portfolio' && 'Browse and manage your entire property catalog'}
                 {activeSection === 'Calendar' && 'Efficiently manage all client appointments and view daily schedules'}
                 {activeSection === 'Revenue Reports' && 'Track and analyze your leasing revenue'}
@@ -253,7 +253,7 @@ export default function StunningLeasingDashboard() {
         </header>
 
         {/* Conditional Content Rendering based on activeSection */}
-       <main className={`flex-1 h-auto ${activeSection === 'Leasing Requests' ? 'p-8' : ''}`}>
+       <main className={`flex-1 overflow-auto ${activeSection === 'Leasing Requests' ? 'p-8' : ''}`}>
           {activeSection === 'Leasing Requests' && (
             view === 'table' ? (
               <div className="bg-black/40 backdrop-blur-xl rounded-3xl border border-gray-800 overflow-hidden shadow-3xl">
@@ -418,7 +418,7 @@ export default function StunningLeasingDashboard() {
           )}
 
           {/* Render the correct component based on activeSection */}
-          {activeSection === 'Add Properties' && <AddProperty />} {/* Renders the actual AddProperty component */}
+          {activeSection === 'Manage Properties' && <AddProperty />} {/* Renders the actual AddProperty component */}
           {activeSection === 'Property Portfolio' && <PropertyPortfolioSection />} {/* Renders the actual PropertyPortfolioSection */}
           {activeSection === 'Market Analytics' && <MarketAnalyticsSection />}
           <div>

@@ -54,8 +54,8 @@ export default function SearchBroker() {
   };
 
   return (
-    <div className="max-w-lg mx-auto bg-white rounded-xl shadow p-4 space-y-4">
-      <div className="h-64 overflow-y-auto border p-2 space-y-2">
+    <div className="mx-auto bg-white rounded-xl shadow p-4 space-y-4 h-screen">
+      <div className="h-64 overflow-y-auto border p-2 space-y-2 h-full">
         {msgLog.map((m, i) => (
           <div
             key={i}
