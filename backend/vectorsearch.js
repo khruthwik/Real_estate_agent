@@ -2,7 +2,11 @@ import 'dotenv/config';
 import { AzureOpenAI } from "openai";
 
 // Declare all constants before they are used in the 'options' object
+const endpoint = process.env.AZURE_ENDPOINT; // Ensure this is set in your .env file
 const apiKey = process.env.MONGODB_URI;
+const apiVersion = process.env.AZURE_API_VERSION; // Default to latest if not set
+const deployment = process.env.AZURE_EMBEDDING_DEPLOYMENT; // This should be your Azure deployment name for embeddings
+
 // Now, define the options object using the declared constants
 const options = { endpoint, apiKey, deployment, apiVersion };
 
