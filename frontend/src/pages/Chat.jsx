@@ -6,56 +6,90 @@ export default function SearchBroker() {
   ]);
   const [inbox, setInbox] = useState('');
 
-  const send = async () => {
-    if (!inbox.trim()) return;
-    const userMsg = inbox;
-    setMsgLog(log => [...log, { from: 'user', text: userMsg }]);
-    setInbox('');
+  // const send = async () => {
+  //   if (!inbox.trim()) return;
+  //   const userMsg = inbox;
+  //   setMsgLog(log => [...log, { from: 'user', text: userMsg }]);
+  //   setInbox('');
 
-    // call /api/search first
-    const searchRes = await fetch('/api/search', {
+  //   // call /api/search first
+  //   // const searchRes = await fetch('/api/search', {
+  //   //   method: 'POST',
+  //   //   headers: { 'Content-Type': 'application/json' },
+  //   //   body: JSON.stringify({ query: userMsg })
+  //   // });
+  //   // const { exact, recommendations, ranked } = await searchRes.json();
+
+  //   // let reply;
+  //   // if (exact.length) {
+  //   //   reply = `I found ${exact.length} exact match${
+  //   //     exact.length > 1 ? 'es' : ''
+  //   //   }.`;
+  //   // } else {
+  //   //   reply = `No exact matches—here are some ${recommendations.length} you might like.`;
+  //   // }
+
+  //   // setMsgLog(log => [...log, { from: 'bot', text: reply }]);
+
+  //   // // show property cards
+  //   // const display = (exact.length ? ranked : recommendations).map(p => ({
+  //   //   from: 'bot',
+  //   //   text: `${p.title} — ¥${p.price}/mo, ${p.bedrooms}br · ${p.bathrooms}ba, ${
+  //   //     p.features.petFriendly ? 'Pet-friendly, ' : ''
+  //   //   }${p.features.parking ? 'Parking' : ''}`
+  //   // }));
+  //   // setMsgLog(log => [...log, ...display]);
+
+  //   // if user wants to ask arbitrary things:
+  //   if (!exact.length && !recommendations.length) {
+  //     // fallback to raw chat
+  //     const chatRes = await fetch('/api/chat', {
+  //       method: 'POST',
+  //       headers: { 'Content-Type': 'application/json' },
+  //       body: JSON.stringify({ message: userMsg })
+  //     });
+  //     const { reply: chatReply } = await chatRes.json();
+  //     setMsgLog(log => [...log, { from: 'bot', text: chatReply }]);
+  //   }
+  // };
+  const send = async () => {
+  if (!inbox.trim()) return;
+  const userMsg = inbox;
+  setMsgLog(log => [...log, { from: 'user', text: userMsg }]);
+  setInbox('');
+
+  try {
+    const chatRes = await fetch('http://localhost:3001/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: userMsg })
+      body: JSON.stringify({ message: userMsg })
     });
-    const { exact, recommendations, ranked } = await searchRes.json();
 
-    let reply;
-    if (exact.length) {
-      reply = `I found ${exact.length} exact match${
-        exact.length > 1 ? 'es' : ''
-      }.`;
-    } else {
-      reply = `No exact matches—here are some ${recommendations.length} you might like.`;
+    console.log('Raw response:', chatRes); // ✅ DEBUG
+
+    if (!chatRes.ok) {
+      const errText = await chatRes.text();
+      console.error('❌ Server error:', errText); // ✅ DEBUG
+      throw new Error('Chat API failed');
     }
+
+    const { reply } = await chatRes.json();
+    console.log('✅ AI reply:', reply); // ✅ DEBUG
 
     setMsgLog(log => [...log, { from: 'bot', text: reply }]);
 
-    // show property cards
-    const display = (exact.length ? ranked : recommendations).map(p => ({
-      from: 'bot',
-      text: `${p.title} — ¥${p.price}/mo, ${p.bedrooms}br · ${p.bathrooms}ba, ${
-        p.features.petFriendly ? 'Pet-friendly, ' : ''
-      }${p.features.parking ? 'Parking' : ''}`
-    }));
-    setMsgLog(log => [...log, ...display]);
+  } catch (err) {
+    console.error('❌ Chat error:', err.message); // ✅ DEBUG
+    setMsgLog(log => [...log, { from: 'bot', text: '❌ Something went wrong. Please try again.' }]);
+  }
+};
 
-    // if user wants to ask arbitrary things:
-    if (!exact.length && !recommendations.length) {
-      // fallback to raw chat
-      const chatRes = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message: userMsg })
-      });
-      const { reply: chatReply } = await chatRes.json();
-      setMsgLog(log => [...log, { from: 'bot', text: chatReply }]);
-    }
-  };
+
+
 
   return (
-    <div className="max-w-lg mx-auto bg-white rounded-xl shadow p-4 space-y-4">
-      <div className="h-64 overflow-y-auto border p-2 space-y-2">
+    <div className=" mx-auto bg-white rounded-xl shadow p-4 space-y-4 h-screen">
+      <div className="h-64 overflow-y-auto border p-2 space-y-2 h-full">
         {msgLog.map((m, i) => (
           <div
             key={i}

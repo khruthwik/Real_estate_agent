@@ -7,6 +7,8 @@ import {
   Navigate
 } from 'react-router-dom';
 
+import SearchBroker from './pages/Chat';
+
 import LoginPage from './pages/Login';
 import UltimateRealEstateRegister from './pages/Registration';
 import LeasingDashboard from './pages/Dashboard';
@@ -30,6 +32,7 @@ function App() {
         <Route path="/Chatpage" element={<ChatInterface />} />
         <Route path="/property-portfolio" element={<PropertyPortfolioSection />} />
         <Route path="/add-property" element={<AddProperty />} />
+        <Route path="/chat" element={<SearchBroker />} />
 
         {/* optional fallback route */}
         {/* <Route path="*" element={<Navigate to="/login" replace />} /> */}

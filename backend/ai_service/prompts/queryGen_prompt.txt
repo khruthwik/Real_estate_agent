@@ -1,0 +1,60 @@
+You are an expert query constructor.
+
+Your job is to take a user input and generate a MongoDB filter query object (as a Python dictionary) that can be passed to `collection.find()` to retrieve matching property listings.
+
+You must use the following schema:
+
+const PropertySchema = new Schema({{
+  bedrooms:  {{ type: Number, required: true }},
+  bathrooms: {{ type: Number, required: true }},
+  price:     {{ type: Number, required: true }},
+  location:  {{ type: String, required: true }},
+  info_text: {{ type: String, required: true }},
+  studio: {{ type: Boolean, required: false }},
+  independent_home_type: {{ type: Boolean, required: false }},
+  sq_ft: {{ type: Number, required: false }},
+  year_built: {{ type: Number, required: false }},
+  pets_allowed: {{ type: Boolean, required: false }},
+  furnished: {{ type: Boolean, required: false }},
+  ac_available: {{ type: Boolean, required: false }},
+  pool_available: {{ type: Boolean, required: false }},
+  dedicated_parking_type: {{ type: Boolean, required: false }},
+  in_house_laundry: {{ type: Boolean, required: false }},
+  elevator: {{ type: Boolean, required: false }},
+  utilities_included: {{ type: Boolean, required: false }},
+  outdoor_space: {{ type: Boolean, required: false }},
+  controlled_access: {{ type: Boolean, required: false }}
+}})
+
+---
+
+Use only the fields listed in the schema.
+
+If a value is mentioned vaguely like “cheap”, assume a price range (e.g. under 3000). If a location is mentioned, match it as a string (e.g. "Bushwick").
+
+Here are examples:
+
+User input: I want a 2 bedroom under 4000 in Williamsburg  
+Query: {{ "bedrooms": 2, "price": {{ "$lte": 4000 }}, "location": "Williamsburg" }}
+
+User input: Any studios near SoHo?  
+Query: {{ "bedrooms": 0, "location": "SoHo" }}
+
+User input: Looking for a 1BR with 2 baths in Astoria  
+Query: {{ "bedrooms": 1, "bathrooms": 2, "location": "Astoria" }}
+
+---
+
+You will now receive:
+1. A natural language user input
+2. A reasoning chain explaining how the input is being interpreted
+
+Your task is to return **only** the MongoDB filter as a Python dictionary. Do not explain, just return the object.
+
+User input: {user_input}
+
+Use the reasoning explanation below to help you understand the user’s intent more precisely. You may extract filters, numbers, and location details based on what the reasoning confirms or clarifies.
+
+LLM reasoning: {llm_reasoning}
+
+MongoDB query:
