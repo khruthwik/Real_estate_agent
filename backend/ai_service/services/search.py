@@ -3,6 +3,7 @@ from pymongo import MongoClient
 import os
 import re
 from typing import Tuple
+import json
 
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="backend/ai_service/.env")
@@ -58,7 +59,7 @@ def generate_mongo_query(user_input: str, llm_reasoning: str, llm) -> dict:
     print("LLM raw query output:", response)
 
     try:
-        parsed = eval(response)
+        parsed = json.loads(response)
         print("Parsed query dict:", parsed)
         return parsed
     except Exception as e:
