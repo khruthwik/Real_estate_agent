@@ -15,6 +15,8 @@ import {
   Calendar,
   Building,
   TrendingUp,
+  ChevronLeft,
+  ChevronRight,
   X // Ensure X is imported if any sub-component uses it (like image removal)
 } from 'lucide-react';
 
@@ -22,6 +24,7 @@ import {
 import AddProperty from './Addproperties'; // The actual AddProperty form component
 import PropertyPortfolioSection from './Apartments'; // The actual Property Portfolio page component
 import Brokercall from './Brokercal'; // The actual Calendar page component
+
 
 // --- Placeholder for other pages (you'll replace these with your actual page components) ---
 const MarketAnalyticsSection = () => (
@@ -46,44 +49,8 @@ const RevenueReportsSection = () => (
 // --- End Placeholder for other pages ---
 
 
-const sampleLeases = [
-  {
-    id: 1,
-    name: 'Alice Johnson',
-    email: 'alice.j@example.com',
-    phone: '+1 (555) 123-4567',
-    summary: '3 BHK near downtown — wants covered parking & top schools.',
-    interest: 8,
-    action: 'Schedule Visit',
-    propertyType: 'Luxury Apartment',
-    budget: '$3,200/mo',
-    location: 'Downtown District'
-  },
-  {
-    id: 2,
-    name: 'Bob Lee',
-    email: 'bob.lee@example.com',
-    phone: '+1 (555) 987-6543',
-    summary: 'Furnished apartment, ₹40k/mo budget, must have balcony.',
-    interest: 6,
-    action: 'Discuss Financing',
-    propertyType: 'Modern Condo',
-    budget: '$2,800/mo',
-    location: 'Waterfront'
-  },
-  {
-    id: 3,
-    name: 'Carol Nguyen',
-    email: 'carol.n@example.com',
-    phone: '+1 (555) 456-7890',
-    summary: 'Pet-friendly requirement, asked about extra fees.',
-    interest: 9,
-    action: 'Send Pet Listings',
-    propertyType: 'Garden Apartment',
-    budget: '$2,400/mo',
-    location: 'Suburban Heights'
-  }
-];
+
+
 
 // Helper function to map paths to section names (component names)
 const getSectionFromPath = (path) => {
@@ -106,6 +73,12 @@ const getSectionFromPath = (path) => {
 export default function StunningLeasingDashboard() {
   const [view, setView] = useState('grid');
   const [search, setSearch] = useState('');
+   const [leases, setLeases] = useState([]); 
+   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
+const itemsPerPage = 3;
+  
   // Initialize activeSection based on current URL path on component mount
   const [activeSection, setActiveSection] = useState(() => getSectionFromPath(window.location.pathname));
 
@@ -121,11 +94,19 @@ export default function StunningLeasingDashboard() {
     };
   }, []); // Run only once on mount to set up the event listener
 
-  const filtered = sampleLeases.filter(l =>
-    l.name.toLowerCase().includes(search.toLowerCase()) ||
-    l.email.toLowerCase().includes(search.toLowerCase()) ||
-    l.location.toLowerCase().includes(search.toLowerCase())
-  );
+  const filtered = leases.filter(l =>
+  l.name.toLowerCase().includes(search.toLowerCase()) ||
+  l.email.toLowerCase().includes(search.toLowerCase()) ||
+  l.location.toLowerCase().includes(search.toLowerCase())
+);
+ const totalPages = Math.ceil(filtered.length / itemsPerPage);
+const startIndex = (currentPage - 1) * itemsPerPage;
+const paginatedLeases = filtered.slice(startIndex, startIndex + itemsPerPage);
+
+// Reset to first page when search changes
+useEffect(() => {
+  setCurrentPage(1);
+}, [search]);
 
   const getInterestColor = (rate) => {
     if (rate >= 8) return 'bg-gray-800 text-gray-50';
@@ -148,8 +129,26 @@ export default function StunningLeasingDashboard() {
     { icon: TrendingUp, label: 'Revenue Reports', path: '/revenue-reports' }
   ];
 
+  useEffect(() => {
+  if (activeSection === 'Leasing Requests') {
+    setLoading(true);
+    fetch('http://localhost:5000/api/leases') // <-- Your backend API URL
+      .then(res => res.json())
+      .then(data => {
+        setLeases(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        console.error('Failed to fetch leases:', err);
+        setError('Failed to load lease data.');
+        setLoading(false);
+      });
+  }
+}, [activeSection]);
+
   return (
-    <div className="flex h-screen bg-gray-950 text-gray-100 font-['Outfit',_sans-serif'] overflow-hidden relative">
+    
+    <div className="flex h-screen bg-gray-950 text-gray-100 font-thin overflow-hidden relative">
       {/* Enhanced Subtle Background with Gradient and Noise */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-90"></div>
@@ -168,7 +167,7 @@ export default function StunningLeasingDashboard() {
             <span className="text-2xl text-gray-50 tracking-tight">
               不動産管理会社
             </span>
-            <p className="text-xs text-gray-400 font-extralight">Premium Leasing Solutions</p>
+            <p className="text-xs text-gray-400 font-thin">Premium Leasing Solutions</p>
           </div>
         </div>
         <nav className="p-6 space-y-2">
@@ -213,7 +212,10 @@ export default function StunningLeasingDashboard() {
               </p>
             </div>
             {/* Show search/view toggle only for Leasing Requests */}
+            
             {activeSection === 'Leasing Requests' && (
+
+              
               <div className="flex items-center space-x-4">
                 <div className="relative">
                   <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
@@ -222,7 +224,7 @@ export default function StunningLeasingDashboard() {
                     value={search}
                     onChange={e => setSearch(e.target.value)}
                     placeholder="Search clients, emails, locations..."
-                    className="pl-12 pr-6 py-3 w-80 rounded-2xl bg-gray-800/80 backdrop-blur-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-gray-600 transition-all duration-300 placeholder-gray-500 text-gray-200 font-light"
+                    className="pl-12 pr-6 py-3 w-80 rounded-2xl bg-gray-800/80 backdrop-blur-lg border border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-600 focus:border-gray-600 transition-all duration-300 placeholder-gray-500 text-gray-200 font-thin"
                   />
                 </div>
                 <div className="flex items-center bg-gray-800/80 backdrop-blur-lg rounded-2xl p-2 border border-gray-700 shadow-inner-lg">
@@ -261,7 +263,7 @@ export default function StunningLeasingDashboard() {
                   <thead>
                     <tr className="bg-gray-900 border-b border-gray-800">
                       {['Client', 'Contact', 'Requirements', 'Interest Level', 'Next Action'].map(col => (
-                        <th key={col} className="px-8 py-5 text-left text-sm font-semibold uppercase tracking-wider text-gray-300">
+                        <th key={col} className="px-8 py-5 text-left text-sm font-thin uppercase tracking-wider text-gray-300">
                           {col}
                         </th>
                       ))}
@@ -280,7 +282,7 @@ export default function StunningLeasingDashboard() {
                               <User className="w-6 h-6 text-gray-100" />
                             </div>
                             <div>
-                              <p className="font-semibold text-gray-50 text-lg">{lease.name}</p>
+                              <p className="font-thin text-gray-50 text-lg">{lease.name}</p>
                               <p className="text-sm text-gray-400 flex items-center mt-1">
                                 <MapPin className="w-3 h-3 mr-1 text-gray-500" />
                                 {lease.location}
@@ -304,10 +306,10 @@ export default function StunningLeasingDashboard() {
                           <div className="space-y-2">
                             <p className="text-sm text-gray-300 leading-relaxed">{lease.summary}</p>
                             <div className="flex items-center justify-between mt-2">
-                              <span className="px-3 py-1 bg-gray-800 text-gray-200 rounded-full text-xs font-medium border border-gray-700">
+                              <span className="px-3 py-1 bg-gray-800 text-gray-200 rounded-full text-xs font-thin border border-gray-700">
                                 {lease.propertyType}
                               </span>
-                              <span className="text-gray-200 font-semibold text-base">{lease.budget}</span>
+                              <span className="text-gray-200 font-thin text-base">{lease.budget}</span>
                             </div>
                           </div>
                         </td>
@@ -319,11 +321,11 @@ export default function StunningLeasingDashboard() {
                                 style={{ width: `${lease.interest * 10}%` }}
                               ></div>
                             </div>
-                            <span className="text-gray-100 font-bold">{lease.interest}/10</span>
+                            <span className="text-gray-100 font-thin">{lease.interest}/10</span>
                           </div>
                         </td>
                         <td className="px-8 py-6">
-                          <button className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-medium transition-all duration-300 transform hover:scale-105 shadow-md">
+                          <button className="px-6 py-3 bg-gray-700 hover:bg-gray-600 text-white rounded-xl font-thin transition-all duration-300 transform hover:scale-105 shadow-md">
                             {lease.action}
                           </button>
                         </td>
@@ -333,8 +335,9 @@ export default function StunningLeasingDashboard() {
                 </table>
               </div>
             ) : (
+              <div>
               <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
-                {filtered.map((lease, idx) => (
+                {paginatedLeases.map((lease, idx) => (
                   <div
                     key={lease.id}
                     className={`group bg-black/40 backdrop-blur-xl rounded-3xl border border-gray-800 p-8 transition-all duration-500 hover:scale-[1.02] hover:bg-black/50 shadow-3xl ${getInterestBorder(lease.interest)} animate-fade-in`}
@@ -347,7 +350,7 @@ export default function StunningLeasingDashboard() {
                           <User className="w-8 h-8 text-gray-100" />
                         </div>
                         <div>
-                          <h3 className="font-bold text-2xl text-gray-50">{lease.name}</h3>
+                          <h3 className="font-thin text-2xl text-gray-50">{lease.name}</h3>
                           <p className="text-gray-400 flex items-center text-sm mt-1">
                             <MapPin className="w-4 h-4 mr-1 text-gray-500" />
                             {lease.location}
@@ -355,7 +358,7 @@ export default function StunningLeasingDashboard() {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className={`px-4 py-1 rounded-full text-xs font-bold ${getInterestColor(lease.interest)} shadow-md`}>
+                        <div className={`px-4 py-1 rounded-full text-xs font-thin ${getInterestColor(lease.interest)} shadow-md`}>
                           {lease.interest}/10
                         </div>
                       </div>
@@ -383,19 +386,19 @@ export default function StunningLeasingDashboard() {
 
                     {/* Property Details */}
                     <div className="flex items-center justify-between mb-6 border-t border-gray-800 pt-6">
-                      <span className="px-4 py-2 bg-gray-800 text-gray-200 rounded-2xl text-sm font-medium border border-gray-700 shadow-inner">
+                      <span className="px-4 py-2 bg-gray-800 text-gray-200 rounded-2xl text-sm font-thin border border-gray-700 shadow-inner">
                         {lease.propertyType}
                       </span>
-                      <span className="text-gray-200 font-bold text-xl">{lease.budget}</span>
+                      <span className="text-gray-200 font-thin text-xl">{lease.budget}</span>
                     </div>
 
                     {/* Interest Level */}
                     <div className="mb-6">
                       <div className="flex items-center justify-between mb-2">
-                        <span className="text-sm font-medium text-gray-400">Client Interest</span>
+                        <span className="text-sm font-thin text-gray-400">Client Interest</span>
                         <div className="flex items-center">
                           <Star className="w-4 h-4 text-gray-400 mr-1" />
-                          <span className="text-gray-100 font-bold">{lease.interest}/10</span>
+                          <span className="text-gray-100 font-thin">{lease.interest}/10</span>
                         </div>
                       </div>
                       <div className="w-full bg-gray-700 rounded-full h-3">
@@ -407,13 +410,52 @@ export default function StunningLeasingDashboard() {
                     </div>
 
                     {/* Action Button */}
-                    <button className="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center">
+                    <button className="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl font-thin transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center">
                       <Calendar className="w-5 h-5 mr-2" />
                       {lease.action}
                     </button>
                   </div>
                 ))}
               </div>
+
+              {totalPages > 1 && (
+    <div className="flex items-center justify-center mt-8 space-x-4">
+      <button
+        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+        disabled={currentPage === 1}
+        className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl font-thin transition-all duration-300 disabled:cursor-not-allowed"
+      >
+        <ChevronLeft className="w-4 h-4 mr-1" />
+        Previous
+      </button>
+      
+      <div className="flex items-center space-x-2">
+        {[...Array(totalPages)].map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentPage(i + 1)}
+            className={`w-10 h-10 rounded-xl font-thin transition-all duration-300 ${
+              currentPage === i + 1
+                ? 'bg-gray-600 text-white'
+                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+            }`}
+          >
+            {i + 1}
+          </button>
+        ))}
+      </div>
+      
+      <button
+        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+        disabled={currentPage === totalPages}
+        className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl font-thin transition-all duration-300 disabled:cursor-not-allowed"
+      >
+        Next
+        <ChevronRight className="w-4 h-4 ml-1" />
+      </button>
+    </div>
+  )}
+</div>
             )
           )}
 

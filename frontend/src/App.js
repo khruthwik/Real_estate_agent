@@ -15,6 +15,7 @@ import PropertyPortfolioSection from './pages/Apartments';
 import AddProperty from './pages/Addproperties'; // ✅ Make sure this path matches your file location
 import BrokerDashboard from './pages/Brokercal';
 import ScheduleEventForm from './pages/Schedule';
+import Loginn from './pages/Loginn'; 
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/property-portfolio" element={<PropertyPortfolioSection />} />
         <Route path="/add-property" element={<AddProperty />} />
         <Route path="/calendar" element={<BrokerDashboard />} />
+        <Route path="/loginn" element={<Loginn />} />
 
          <Route path="/schedule" element={<ScheduleEventForm />} />
 

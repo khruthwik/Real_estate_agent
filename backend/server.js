@@ -4,9 +4,9 @@ const cors = require('cors');
 const PORT = process.env.PORT || 5000;
 const mongoose = require('mongoose');
 const Property = require('./models/Property');
-// const { extractSlots } = require('./extractor');
-// const { rankByVector } = require('./vectorsearch');
+const leaseRoutes = require('./routes/leases');
 const eventRoutes = require('./routes/events');
+const axios = require('axios');
 async function main() {
  
   // Replace your current connection code with this:
@@ -36,7 +36,9 @@ connectDB();
 
   const app = express();
   app.use(express.json());
-  app.use(cors());
+  app.use(cors({
+  origin: '*'
+}));
 
   // getting all the properties
   app.get('/api/properties', async (req, res) => {
@@ -384,6 +386,24 @@ app.post('/api/properties/search', async (req, res) => {
   });
 
   app.use('/api/events', eventRoutes);
+  app.use('/api/leases', leaseRoutes);
+
+  app.post('/chat', async (req, res) => {
+  try {
+    console.log('Received chat request:', req.body); // ✅ DEBUG
+    const { message, session_id } = req.body;
+
+    const aiResponse = await axios.post('http://localhost:8000/chat', {
+      message,
+      session_id: session_id || 'default',
+    });
+
+    res.json(aiResponse.data);
+  } catch (err) {
+    console.error('AI service error:', err.message);
+    res.status(500).json({ error: 'AI service failed.' });
+  }
+});
 
 
 

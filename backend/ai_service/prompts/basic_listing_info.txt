@@ -1,0 +1,20 @@
+- 2 Bed · 1 Bath · Williamsburg · $6297
+- 4 Bed · 1 Bath · Brooklyn Heights · $7807
+- 4 Bed · 2 Bath · Financial District · $6542
+- 2 Bed · 1 Bath · SoHo · $4372
+- 1 Bed · 2 Bath · Brooklyn Heights · $4664
+- 1 Bed · 2 Bath · Brooklyn Heights · $4713
+- 1 Bed · 1 Bath · Upper West Side · $7621
+- 1 Bed · 2 Bath · Brooklyn Heights · $7300
+- 3 Bed · 1 Bath · Williamsburg · $5776
+- 2 Bed · 2 Bath · Crown Heights · $3211
+- 2 Bed · 1 Bath · Harlem · $3303
+- 1 Bed · 2 Bath · East Village · $2467
+- 1 Bed · 1 Bath · DUMBO · $5949
+- 4 Bed · 1 Bath · Tribeca · $3762
+- 4 Bed · 1 Bath · Upper West Side · $4905
+- 2 Bed · 2 Bath · Greenpoint · $3709
+- 4 Bed · 1 Bath · SoHo · $7018
+- 4 Bed · 1 Bath · Upper West Side · $4905
+- 1 Bed · 2 Bath · SoHo · $7611
+- 1 Bed · 2 Bath · Bedford-Stuyvesant · $1847
