@@ -1,11 +1,11 @@
 import 'dotenv/config';
 import { AzureOpenAI } from 'openai';
 
-const endpoint = "https://real-estate-agent.openai.azure.com/";
-const modelName = "gpt-4o"; // This modelName is used for chat/completion, but your deployment is for embeddings
-const apiKey = "lAcfByTYluM8rajLsYgqFdnVvdnoNfqQn1840j7uf4KZZpjBnWmTJQQJ99BFACi0881XJ3w3AAABACOG5Liq";
-const apiVersion = "2024-04-01-preview";
-const deployment = "gpt-4o"; // This should be your Azure deployment name for embeddings
+const endpoint = process.env.AZURE_ENDPOINT; // Ensure this is set in your .env file
+const apiKey = process.env.MONGODB_URI;
+const apiVersion = process.env.AZURE_API_VERSION; // Default to latest if not set
+const deployment = process.env.AZURE_CHAT_DEPLOYMENT;
+
 
 // Now, define the options object using the declared constants
 const options = { endpoint, apiKey, deployment, apiVersion };
@@ -30,7 +30,7 @@ async function extractSlots(query) {
 
   // LLM prompt
   const prompt = `
-You are a real‐estate broker helper. Parse the query into JSON:
+You are a real-estate broker helper. Parse the query into JSON:
 { "bedrooms": int or null,
   "bathrooms": int or null,
   "location": string or null,

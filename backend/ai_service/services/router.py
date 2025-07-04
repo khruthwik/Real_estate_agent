@@ -8,7 +8,11 @@ async def route_user_input(user_input: str, llm: BaseChatModel, memory: Conversa
 
     print("USER INPUT:", user_input)
 
+<<<<<<< HEAD
     with open("backend/ai_service/prompts/system_prompt.txt", "r") as file:
+=======
+    with open("backend/ai_service/prompts/temp.txt", "r") as file:
+>>>>>>> origin/main
         instructions_prompt = file.read()
     
     with open("backend/ai_service/prompts/basic_listing_info.txt", "r") as file:

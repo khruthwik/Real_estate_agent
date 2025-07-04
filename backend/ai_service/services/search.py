@@ -7,9 +7,15 @@ from typing import Tuple
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="backend/ai_service/.env")
 
+<<<<<<< HEAD
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client.get_database(os.getenv("MONGO_DB_NAME"))
 collection = db.get_collection(os.getenv("MONGO_COLLECTION"))
+=======
+client = MongoClient("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.3")
+db = client.get_database("test")
+collection = db.get_collection("properties")
+>>>>>>> origin/main
 
 def should_search_db(user_input: str, llm, overall_system_prompt, history: list) -> Tuple[bool, str]:
     with open("backend/ai_service/prompts/decision_prompt.txt", "r") as file:

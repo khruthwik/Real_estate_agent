@@ -1,3 +1,79 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.fc .fc-toolbar-chunk button {
+  @apply bg-blue-600 text-white rounded px-3 py-1 hover:bg-blue-700;
+}
+.fc .fc-col-header-cell-cushion {
+  @apply font-semibold text-gray-700;
+}
+
+@layer components {
+  .fc .fc-toolbar .fc-button {
+    @apply text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200;
+  }
+  .fc .fc-toolbar .fc-button.fc-button-primary {
+    @apply text-white bg-blue-600 border-transparent hover:bg-blue-700;
+  }
+}
+
+/*───────────────────────────────────────────────────
+  Month-View Sidebar
+───────────────────────────────────────────────────*/
+@layer components {
+  .fc .fc-daygrid-day-number {
+    @apply text-gray-700 font-semibold;
+  }
+  .fc .fc-daygrid-day.fc-day-today {
+    @apply bg-blue-50 rounded;
+  }
+  .fc-daygrid .fc-scrollgrid-sync-inner {
+    @apply divide-y divide-gray-200;
+  }
+}
+
+/*───────────────────────────────────────────────────
+  Week-View Grid & Time Slots
+───────────────────────────────────────────────────*/
+@layer components {
+  /* Hour labels */
+  .fc .fc-timegrid-slot-label-cushion {
+    @apply text-xs text-gray-500;
+  }
+  /* Grid lines */
+  .fc .fc-timegrid-slot {
+    border-top: 1px solid rgba(229,231,235,1); /* tailwind-gray-200 */
+  }
+  /* Highlight now */
+  .fc .fc-timegrid-now-indicator-line {
+    @apply bg-red-500;
+    height: 2px;
+  }
+}
+
+/*───────────────────────────────────────────────────
+  Events Styling
+───────────────────────────────────────────────────*/
+@layer components {
+  /* Available slots (background only) */
+  .fc-event[data-rendering="background"] {
+    @apply bg-green-100; /* a light green */
+  }
+  /* Booked appointments */
+  .fc-event:not([data-rendering="background"]) {
+    @apply bg-amber-300 border-amber-500 text-gray-800;
+  }
+}
+
+/*───────────────────────────────────────────────────
+  Responsive adjustments
+───────────────────────────────────────────────────*/
+@layer utilities {
+  /* shrink sidebar on small screens */
+  @variants sm {
+    .sidebar-hidden {
+      display: none;
+    }
+  }
+}
