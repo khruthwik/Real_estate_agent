@@ -3,20 +3,13 @@ from pymongo import MongoClient
 import os
 import re
 from typing import Tuple
-import json
 
 from dotenv import load_dotenv
 load_dotenv(dotenv_path="backend/ai_service/.env")
 
-<<<<<<< HEAD
 client = MongoClient(os.getenv("MONGO_URI"))
 db = client.get_database(os.getenv("MONGO_DB_NAME"))
 collection = db.get_collection(os.getenv("MONGO_COLLECTION"))
-=======
-client = MongoClient("mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.5.3")
-db = client.get_database("test")
-collection = db.get_collection("properties")
->>>>>>> origin/main
 
 def should_search_db(user_input: str, llm, overall_system_prompt, history: list) -> Tuple[bool, str]:
     with open("backend/ai_service/prompts/decision_prompt.txt", "r") as file:
@@ -55,11 +48,11 @@ def generate_mongo_query(user_input: str, llm_reasoning: str, llm) -> dict:
 
     final_prompt = prompt_template.format(user_input=user_input, llm_reasoning=llm_reasoning)
 
-    response = llm.predict(final_prompt)
-    print("LLM raw query output:", response)
-
+    response2 = llm.predict(final_prompt)
+    print("LLM raw query output:", response2)
+    response = response2.replace('true', 'True').replace('false', 'False')
     try:
-        parsed = json.loads(response)
+        parsed = eval(response)
         print("Parsed query dict:", parsed)
         return parsed
     except Exception as e:

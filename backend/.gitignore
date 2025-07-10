@@ -38,3 +38,8 @@ coverage/
 *.swp
 *.bak
 *.tmp
+
+# Python cache
+ai_service/__pycache__/
+ai_service/routes/__pycache__
+ai_service/services/__pycache__

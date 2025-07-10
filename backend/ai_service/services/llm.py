@@ -26,4 +26,18 @@ def get_memory(session_id: str):
 async def get_chat_response(user_input: str, session_id: str):
     memory = get_memory(session_id)
     response = await route_user_input(user_input, llm, memory)
-    return response
+    print(response)
+    input_2 = f"""
+                You're a wrapper, read the response and check for any bad framing of the response content. 
+                If there is a logical error, reframe the response to make it more clear and concise.
+                If NOT, pass the response AS IT IS:
+                
+                Errors may inlcude like saying the same thing twice, or the response message in not cohesive and flow of the message is not good.
+                Response: 
+                {response}
+
+                [OUTPUT FORMAT]
+                Include only the contents of the response, without any additional text or explanation.
+                """
+    response2 = await llm.ainvoke(input_2)
+    return response2.content
