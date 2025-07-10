@@ -5,7 +5,13 @@ const mongoose = require('mongoose');
 const Property = require('./models/Property');
 const leaseRoutes = require('./routes/leases');
 const eventRoutes = require('./routes/events');
+const SavedProperty = require('../backend/models/savedproperty');
 const axios = require('axios');
+const authRoutes = require('./routes/auth');
+const fs = require('fs');
+const path = require('path');
+
+
 async function main() {
  
   // Replace your current connection code with this:
@@ -149,6 +155,40 @@ app.post('/api/properties', async (req, res) => {
     });
 
     const savedProperty = await newProperty.save();
+    const filePath = path.join(__dirname, '..','backend', 'ai_service', 'prompts', 'basic_listing_info.txt');
+    fs.readFile(filePath, 'utf8', (readErr, data) => {
+  let serial = 1;
+
+  if (!readErr && data.trim()) {
+    // Count how many lines start with a serial number (e.g., "1.", "2.", ...)
+    const matches = data.match(/^\d+\./gm);
+    serial = matches ? matches.length + 1 : 1;
+  }
+
+  // Step 2: Create formatted string
+  const summaryLine = `${serial}. Title: ${title || 'N/A'},\n` +
+    `   Unique ID: ${savedProperty._id},\n` +
+    `   Address: ${address || 'N/A'},\n` +
+    `   Price: $${price ? price.toLocaleString() : 'N/A'},\n` +
+    `   Type: ${type || 'N/A'},\n` +
+    `   Bedrooms: ${bedrooms || 'N/A'},\n` +
+    `   Bathrooms: ${bathrooms || 'N/A'},\n` +
+    `   Sqft: ${sqft ? sqft.toLocaleString() : 'N/A'},\n` +
+    `   Features:\n` +
+    `     - Pet Friendly: ${features?.petFriendly ? 'Yes' : 'No'}\n` +
+    `     - Parking: ${features?.parking ? 'Yes' : 'No'}\n` +
+    `   Description: ${description || 'N/A'}\n` +
+    `   Image URL: ${imageUrl || 'N/A'}\n\n`; // 👈 extra newline for spacing
+
+  // Step 3: Append to file
+  fs.appendFile(filePath, summaryLine, (err) => {
+    if (err) {
+      console.error("❌ Failed to update basic_listing_info.txt:", err);
+    } else {
+      console.log("✅ basic_listing_info.txt updated with serial:", serial);
+    }
+  });
+});
 
     // Transform response back to frontend format
     const responseProperty = {
@@ -272,7 +312,7 @@ app.put('/api/properties/:id', async (req, res) => {
     }
     res.status(500).json({ error: 'Failed to update property' });
   }
-});
+}); 
 
 
 app.delete('/api/properties/:id', async (req, res) => {
@@ -295,6 +335,74 @@ app.delete('/api/properties/:id', async (req, res) => {
     res.status(500).json({ error: 'Failed to delete property' });
   }
 });
+
+app.post('/api/properties/save', async (req, res) => {
+  try {
+    const { userId, property } = req.body;
+
+    if (!userId || !property) {
+      return res.status(400).json({ error: 'User ID and property data are required' });
+    }
+
+    const savedProperty = new SavedProperty({
+      userId,
+      property
+    });
+
+    await savedProperty.save();
+
+    res.status(201).json({ 
+      success: true,
+      message: 'Property saved successfully',
+      savedProperty 
+    });
+
+  } catch (error) {
+    console.error('Error saving property:', error);
+    res.status(500).json({ error: 'Failed to save property' });
+  }
+});
+
+
+// Get saved properties endpoint
+app.get('/api/properties/saved/:email', async (req, res) => {
+  try {
+    console.log('Fetching saved properties for email:', req.params.email); // ✅ DEBUG
+    const userId = req.params.email;
+
+    const savedProperties = await SavedProperty.find({ userId }).sort({ savedAt: -1 });
+    console.log('Found saved properties:', savedProperties.length); // ✅ DEBUGß
+
+    res.json({ 
+      success: true, 
+      savedProperties 
+    });
+
+  } catch (error) {
+    console.error('Error fetching saved properties:', error);
+    res.status(500).json({ error: 'Failed to fetch saved properties' });
+  }
+});
+
+app.delete('/api/properties/unsave', async (req, res) => {
+  try {
+    const { userId, propertyId } = req.body;
+    if (!userId || !propertyId) {
+      return res.status(400).json({ error: 'User ID and property ID are required' });
+    }
+    
+    await SavedProperty.findOneAndDelete({ 
+      userId, 
+      'property._id': propertyId 
+    });
+    
+    res.json({ success: true, message: 'Property unsaved successfully' });
+  } catch (error) {
+    console.error('Error unsaving property:', error);
+    res.status(500).json({ error: 'Failed to unsave property' });
+  }
+});
+
 
 
 app.post('/api/properties/search', async (req, res) => {
@@ -386,18 +494,21 @@ app.post('/api/properties/search', async (req, res) => {
 
   app.use('/api/events', eventRoutes);
   app.use('/api/leases', leaseRoutes);
+  app.use('/api/auth', authRoutes);
 
   app.post('/chat', async (req, res) => {
   try {
     console.log('Received chat request:', req.body); // ✅ DEBUG
-    const { message, session_id } = req.body;
+    const { message, session_id,user } = req.body;
 
     const aiResponse = await axios.post('http://localhost:8000/chat', {
       message,
       session_id: session_id || 'default',
+      user
     });
 
     res.json(aiResponse.data);
+    console.log('AI response:', aiResponse.data); // ✅ DEBUG
   } catch (err) {
     console.error('AI service error:', err.message);
     res.status(500).json({ error: 'AI service failed.' });

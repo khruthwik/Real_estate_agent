@@ -1,0 +1,452 @@
+[
+  {
+    "title": "Modern Loft with City Views",
+    "address": "456 W 23rd St, New York, NY 10011",
+    "price": 4800,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1050,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "A modern loft in Chelsea with floor-to-ceiling windows and skyline views.",
+    "imageUrl": "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg"
+  },
+  {
+    "title": "Sunny Studio Near Central Park",
+    "address": "12 E 68th St, New York, NY 10065",
+    "price": 2950,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 475,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Cozy studio with natural light and easy access to the park.",
+    "imageUrl": "https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg"
+  },
+  {
+    "title": "Luxury 3BR in Tribeca",
+    "address": "88 Leonard St, New York, NY 10013",
+    "price": 8900,
+    "type": "condo",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1600,
+    "features": {
+      "petFriendly": true,
+      "parking": true
+    },
+    "description": "Spacious condo with doorman, gym, and in-unit laundry.",
+    "imageUrl": "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg"
+  },
+  {
+    "title": "1BR in DUMBO with Waterfront View",
+    "address": "30 Washington St, Brooklyn, NY 11201",
+    "price": 4100,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 780,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Charming unit with direct views of Manhattan Bridge.",
+    "imageUrl": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg"
+  },
+  {
+    "title": "Greenpoint Garden Home",
+    "address": "136 Greenpoint Ave, Brooklyn, NY 11222",
+    "price": 5200,
+    "type": "house",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1420,
+    "features": {
+      "petFriendly": true,
+      "parking": true
+    },
+    "description": "Townhouse with private garden and renovated kitchen.",
+    "imageUrl": "https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg"
+  },
+  {
+    "title": "2BR with Balcony in Williamsburg",
+    "address": "221 N 9th St, Brooklyn, NY 11211",
+    "price": 4300,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 900,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Bright and airy unit with balcony and hardwood floors.",
+    "imageUrl": "https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg"
+  },
+  {
+    "title": "West Village Historic Studio",
+    "address": "75 Bank St, New York, NY 10014",
+    "price": 3100,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 500,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Exposed brick and quiet tree-lined block.",
+    "imageUrl": "https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg"
+  },
+  {
+    "title": "SoHo Artist Loft",
+    "address": "478 Broadway, New York, NY 10013",
+    "price": 7400,
+    "type": "loft",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1700,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "High ceilings, wide open space, and natural light.",
+    "imageUrl": "https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg"
+  },
+  {
+    "title": "UWS Classic 2BR Prewar",
+    "address": "212 W 91st St, New York, NY 10024",
+    "price": 4600,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 980,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Spacious layout, crown molding, and hardwood floors.",
+    "imageUrl": "https://images.pexels.com/photos/272474/pexels-photo-272474.jpeg"
+  },
+  {
+    "title": "New 1BR in East Harlem",
+    "address": "2225 Lexington Ave, New York, NY 10035",
+    "price": 2800,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 620,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Modern appliances and laundry in building.",
+    "imageUrl": "https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg"
+  },
+  {
+    "title": "Queensboro Plaza Studio",
+    "address": "27-01 42nd Rd, Long Island City, NY 11101",
+    "price": 2600,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 510,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Compact studio steps from multiple subway lines, ideal for commuters.",
+    "imageUrl": "https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg"
+  },
+  {
+    "title": "Fort Greene Historic 1BR",
+    "address": "120 S Portland Ave, Brooklyn, NY 11217",
+    "price": 3900,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 750,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Charming 1-bedroom in a classic Fort Greene brownstone, near Fort Greene Park.",
+    "imageUrl": "https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg"
+  },
+  {
+    "title": "Bushwick Industrial Loft",
+    "address": "500 Johnson Ave, Brooklyn, NY 11237",
+    "price": 3600,
+    "type": "loft",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 1000,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Authentic industrial loft with high ceilings and large windows, popular among artists.",
+    "imageUrl": "https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg"
+  },
+  {
+    "title": "Harlem Duplex Apartment",
+    "address": "200 W 135th St, New York, NY 10030",
+    "price": 5300,
+    "type": "apartment",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1600,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Spacious duplex with modern renovations, perfect for families or roommates.",
+    "imageUrl": "https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg"
+  },
+  {
+    "title": "Midtown East 1BR with Doorman",
+    "address": "300 E 54th St, New York, NY 10022",
+    "price": 4000,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 680,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Elegant 1-bedroom in a full-service doorman building, close to UN.",
+    "imageUrl": "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg"
+  },
+  {
+    "title": "Astoria 2BR Garden Unit",
+    "address": "31-01 30th Ave, Astoria, NY 11102",
+    "price": 3400,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 850,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Ground floor 2-bedroom with access to a shared garden, ideal for pet owners.",
+    "imageUrl": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg"
+  },
+  {
+    "title": "Chelsea Art Gallery View Studio",
+    "address": "525 W 26th St, New York, NY 10001",
+    "price": 3300,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 530,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Bright studio overlooking High Line and art galleries, perfect for creative individuals.",
+    "imageUrl": "https://images.pexels.com/photos/1643393/pexels-photo-1643393.jpeg"
+  },
+  {
+    "title": "NoHo Designer Loft",
+    "address": "30 Great Jones St, New York, NY 10012",
+    "price": 7800,
+    "type": "loft",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1800,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Exquisitely designed loft in NoHo with high-end finishes and open layout.",
+    "imageUrl": "https://images.pexels.com/photos/166060/pexels-photo-166060.jpeg"
+  },
+  {
+    "title": "Upper West Side Renovated 1BR",
+    "address": "150 W 79th St, New York, NY 10024",
+    "price": 3950,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 700,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Newly renovated 1-bedroom in a well-maintained pre-war building, close to Museum of Natural History.",
+    "imageUrl": "https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg"
+  },
+  {
+    "title": "Lower East Side Penthouse",
+    "address": "100 Rivington St, New York, NY 10002",
+    "price": 6000,
+    "type": "penthouse",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1100,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Stunning penthouse with private rooftop access and panoramic city views.",
+    "imageUrl": "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg"
+  },
+  {
+    "title": "Brooklyn Heights Condo",
+    "address": "100 Clark St, Brooklyn, NY 11201",
+    "price": 4900,
+    "type": "condo",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1050,
+    "features": {
+      "petFriendly": true,
+      "parking": true
+    },
+    "description": "Modern condo with amenities in a prime Brooklyn Heights location.",
+    "imageUrl": "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg"
+  },
+  {
+    "title": "Times Square Studio",
+    "address": "150 W 47th St, New York, NY 10036",
+    "price": 3500,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 500,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Vibrant studio in the heart of Times Square, ideal for quick city access.",
+    "imageUrl": "https://images.pexels.com/photos/3735706/pexels-photo-3735706.jpeg"
+  },
+  {
+    "title": "Park Slope Charming 1BR",
+    "address": "100 8th Ave, Brooklyn, NY 11215",
+    "price": 3200,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 700,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Charming 1-bedroom on a tree-lined street in desirable Park Slope.",
+    "imageUrl": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg"
+  },
+  {
+    "title": "Washington Heights Spacious 3BR",
+    "address": "500 W 177th St, New York, NY 10033",
+    "price": 4200,
+    "type": "apartment",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1300,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Large family-friendly apartment with abundant natural light and spacious rooms.",
+    "imageUrl": "https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg"
+  },
+  {
+    "title": "Long Island City New Development 2BR",
+    "address": "45-05 23rd St, Long Island City, NY 11101",
+    "price": 5200,
+    "type": "condo",
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "sqft": 1150,
+    "features": {
+      "petFriendly": true,
+      "parking": true
+    },
+    "description": "Brand new condo with modern finishes and city views, full amenity building.",
+    "imageUrl": "https://images.pexels.com/photos/1457845/pexels-photo-1457845.jpeg"
+  },
+  {
+    "title": "Flatiron District Corner 1BR",
+    "address": "200 5th Ave, New York, NY 10010",
+    "price": 4700,
+    "type": "apartment",
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "sqft": 850,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Bright corner unit with large windows overlooking iconic Flatiron buildings.",
+    "imageUrl": "https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg"
+  },
+  {
+    "title": "Riverdale 3BR with Balcony",
+    "address": "3000 Henry Hudson Pkwy, Bronx, NY 10463",
+    "price": 4000,
+    "type": "apartment",
+    "bedrooms": 3,
+    "bathrooms": 2,
+    "sqft": 1400,
+    "features": {
+      "petFriendly": true,
+      "parking": true
+    },
+    "description": "Spacious apartment with a private balcony and river views in a quiet Bronx neighborhood.",
+    "imageUrl": "https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg"
+  },
+  {
+    "title": "Cobble Hill Garden Unit",
+    "address": "150 Congress St, Brooklyn, NY 11201",
+    "price": 4500,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 900,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Beautiful garden apartment with exclusive outdoor space in charming Cobble Hill.",
+    "imageUrl": "https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg"
+  },
+  {
+    "title": "East Flatbush Spacious 2BR",
+    "address": "123 Martense St, Brooklyn, NY 11226",
+    "price": 2500,
+    "type": "apartment",
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "sqft": 950,
+    "features": {
+      "petFriendly": false,
+      "parking": false
+    },
+    "description": "Affordable and spacious 2-bedroom in a lively East Flatbush neighborhood.",
+    "imageUrl": "https://images.pexels.com/photos/276714/pexels-photo-276714.jpeg"
+  },
+  {
+    "title": "NoLita Bright Studio",
+    "address": "200 Kenmare St, New York, NY 10012",
+    "price": 3100,
+    "type": "studio",
+    "bedrooms": 0,
+    "bathrooms": 1,
+    "sqft": 480,
+    "features": {
+      "petFriendly": true,
+      "parking": false
+    },
+    "description": "Sun-drenched studio in trendy NoLita, steps away from cafes and boutiques.",
+    "imageUrl": "https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg"
+  }
+]

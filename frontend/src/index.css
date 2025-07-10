@@ -1,79 +1,205 @@
+/* Import React Big Calendar styles */
+@import 'react-big-calendar/lib/css/react-big-calendar.css';
+@import 'react-big-calendar/lib/addons/dragAndDrop/styles.css'; /* For drag & drop styles */
+
+/* Your existing Tailwind CSS imports (if you haven't configured them via postcss) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-.fc .fc-toolbar-chunk button {
-  @apply bg-blue-600 text-white rounded px-3 py-1 hover:bg-blue-700;
-}
-.fc .fc-col-header-cell-cushion {
-  @apply font-semibold text-gray-700;
+/* Custom fonts from BrokerCalendar.js */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap');
+
+/* Basic reset for better consistency */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* Prevent body scroll if calendar manages its own */
 }
 
-@layer components {
-  .fc .fc-toolbar .fc-button {
-    @apply text-sm font-medium text-gray-700 bg-gray-100 border border-gray-300 rounded hover:bg-gray-200;
-  }
-  .fc .fc-toolbar .fc-button.fc-button-primary {
-    @apply text-white bg-blue-600 border-transparent hover:bg-blue-700;
-  }
+/* Add custom scrollbar styles that were in BrokerCalendar.js <style jsx> */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25);
 }
 
-/*───────────────────────────────────────────────────
-  Month-View Sidebar
-───────────────────────────────────────────────────*/
-@layer components {
-  .fc .fc-daygrid-day-number {
-    @apply text-gray-700 font-semibold;
-  }
-  .fc .fc-daygrid-day.fc-day-today {
-    @apply bg-blue-50 rounded;
-  }
-  .fc-daygrid .fc-scrollgrid-sync-inner {
-    @apply divide-y divide-gray-200;
-  }
+/* Custom scrollbar for light theme (from EventPopover.js) */
+.custom-scrollbar-dark::-webkit-scrollbar {
+  width: 8px;
+}
+.custom-scrollbar-dark::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2); /* Adjusted to match dark theme now */
+  border-radius: 10px;
+}
+.custom-scrollbar-dark::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.15); /* Adjusted to match dark theme now */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.custom-scrollbar-dark::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.25); /* Adjusted to match dark theme now */
 }
 
-/*───────────────────────────────────────────────────
-  Week-View Grid & Time Slots
-───────────────────────────────────────────────────*/
-@layer components {
-  /* Hour labels */
-  .fc .fc-timegrid-slot-label-cushion {
-    @apply text-xs text-gray-500;
-  }
-  /* Grid lines */
-  .fc .fc-timegrid-slot {
-    border-top: 1px solid rgba(229,231,235,1); /* tailwind-gray-200 */
-  }
-  /* Highlight now */
-  .fc .fc-timegrid-now-indicator-line {
-    @apply bg-red-500;
-    height: 2px;
-  }
+
+/* Your custom shadow styles (from BrokerCalendar.js and EventPopover.js) */
+.shadow-inner-xl {
+  box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.6), inset 0 -2px 4px 0 rgba(255, 255, 255, 0.05);
+}
+.shadow-inner-lg {
+  box-shadow: inset 0 1px 2px 0 rgba(0, 0, 0, 0.4), inset 0 -1px 2px 0 rgba(255, 255, 255, 0.03);
+}
+.shadow-3xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.7), 0 10px 10px -5px rgba(0, 0, 0, 0.6);
 }
 
-/*───────────────────────────────────────────────────
-  Events Styling
-───────────────────────────────────────────────────*/
-@layer components {
-  /* Available slots (background only) */
-  .fc-event[data-rendering="background"] {
-    @apply bg-green-100; /* a light green */
-  }
-  /* Booked appointments */
-  .fc-event:not([data-rendering="background"]) {
-    @apply bg-amber-300 border-amber-500 text-gray-800;
-  }
+/* Temporary/Initial overrides for React Big Calendar to start dark */
+/* These will be refined significantly in the next steps */
+.rbc-calendar {
+  font-family: 'Outfit', sans-serif;
+  background-color: transparent !important; /* Managed by parent div */
+  color: #e2e8f0; /* gray-200 */
 }
 
-/*───────────────────────────────────────────────────
-  Responsive adjustments
-───────────────────────────────────────────────────*/
-@layer utilities {
-  /* shrink sidebar on small screens */
-  @variants sm {
-    .sidebar-hidden {
-      display: none;
-    }
-  }
+/* Toolbar and Navigation */
+.rbc-toolbar {
+  background-color: transparent !important; /* Managed by header */
+  border-bottom: none !important;
+  color: #e2e8f0; /* gray-200 */
+}
+
+.rbc-btn-group button {
+  background-color: #374151; /* gray-700 */
+  color: #cbd5e1; /* gray-300 */
+  border: 1px solid #4b5563; /* gray-600 */
+  border-radius: 0.5rem; /* rounded-lg */
+}
+.rbc-btn-group button:hover {
+  background-color: #4b5563; /* gray-600 */
+  color: #f9fafb; /* gray-50 */
+}
+.rbc-btn-group button.rbc-active {
+  background-color: #4f46e5 !important; /* indigo-600 */
+  color: white !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Header Cells (Weekdays, Dates) */
+.rbc-header {
+  border-bottom: 1px solid #374151 !important; /* gray-700 */
+  color: #9ca3af !important; /* gray-400 */
+}
+
+/* Day cells */
+.rbc-day-bg {
+  background-color: transparent !important;
+}
+
+.rbc-off-range-bg {
+  background-color: rgba(0, 0, 0, 0.1) !important; /* A subtle darker shade for off-range days */
+}
+
+.rbc-date-cell {
+  color: #f9fafb !important; /* gray-50 */
+}
+
+.rbc-row-segment .rbc-event {
+  background-color: #4f46e5 !important; /* indigo-600 default */
+  color: white !important;
+  border-radius: 0.375rem !important; /* rounded-md */
+  padding: 0.25rem 0.5rem !important;
+  font-size: 0.75rem !important; /* text-xs */
+  opacity: 0.9;
+}
+
+.rbc-event:hover {
+  opacity: 1;
+}
+
+.rbc-event-content {
+  font-weight: 300; /* font-thin */
+}
+
+.rbc-time-slot {
+  border-top: 1px solid #374151 !important; /* gray-700 */
+}
+
+.rbc-time-header {
+  color: #9ca3af; /* gray-400 */
+}
+
+.rbc-current-time-indicator {
+  background-color: #6366f1 !important; /* indigo-500 */
+}
+
+.rbc-today {
+  background-color: rgba(99, 102, 241, 0.2) !important; /* indigo-600 with transparency */
+}
+
+/* Styling for drag-and-drop ghosts */
+.rbc-addons-dnd .rbc-event-resizing,
+.rbc-addons-dnd .rbc-event-dragging {
+  opacity: 0.7 !important;
+  border: 1px dashed #6366f1 !important;
+}
+
+.rbc-addons-dnd .rbc-placeholder {
+  background-color: rgba(99, 102, 241, 0.3) !important; /* Indigo for placeholder */
+  border: 1px dashed #6366f1 !important;
+}
+
+/* Month View Overrides */
+.rbc-month-view .rbc-header {
+  color: #9ca3af; /* gray-400 */
+  border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+.rbc-month-view .rbc-date-cell {
+  color: #f9fafb; /* gray-50 */
+}
+
+.rbc-month-view .rbc-row-content {
+  color: #d1d5db; /* gray-300 */
+}
+
+/* Agenda View (List View) Overrides */
+.rbc-agenda-view table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rbc-agenda-view th {
+  background-color: #1f2937; /* gray-800 */
+  color: #f9fafb; /* gray-50 */
+  padding: 0.75rem;
+  text-align: left;
+  border-bottom: 1px solid #374151; /* gray-700 */
+}
+
+.rbc-agenda-view td {
+  padding: 0.75rem;
+  border-bottom: 1px solid #374151; /* gray-700 */
+  color: #d1d5db; /* gray-300 */
+}
+
+.rbc-agenda-view td:first-child {
+  color: #6366f1; /* indigo-500 for date */
+  font-weight: 500;
+}
+
+.rbc-agenda-event-cell {
+  color: #f9fafb; /* gray-50 for event title */
 }
