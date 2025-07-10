@@ -6,13 +6,37 @@ export default function UltimateRealEstateLogin() {
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    setLoading(true);
-    // simulate network request
-    await new Promise((r) => setTimeout(r, 1000));
-    console.log('Logged in');
+  e.preventDefault();
+  setLoading(true);
+
+  const email = e.target.email.value;
+  const password = e.target.password.value;
+
+  try {
+    const res = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password })
+    });
+
+    const data = await res.json();
+    console.log(data);
+    if (!res.ok) throw new Error(data.error || "Login failed");
+
+    localStorage.setItem("token", data.token);
+    localStorage.setItem("user", JSON.stringify(data.user));
+
+    alert("Login successful!");
+    setTimeout(() => {
+        window.location.href = '/chatpage';
+      }, 1000);
+  } catch (err) {
+    alert(err.message);
+  } finally {
     setLoading(false);
-  };
+  }
+};
+
 
   return (
     <div className="relative h-screen w-full overflow-hidden font-sans">

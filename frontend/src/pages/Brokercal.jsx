@@ -336,12 +336,12 @@ const switchView = (newView) => {
          </h2>
  
          <div className="text-center mb-4">
-           <h3 className="text-lg font-thin text-gray-100">{monthName}</h3>
+           <h3 className="text-lg font-serif text-gray-100">{monthName}</h3>
          </div>
  
          <div className="grid grid-cols-7 gap-1 mb-2">
            {['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].map(day => (
-             <div key={day} className="text-center text-sm font-thin text-gray-400 p-2 ">
+             <div key={day} className="text-center text-sm font-medium text-gray-400 p-2 ">
                {day}
              </div>
            ))}
@@ -657,6 +657,21 @@ const switchView = (newView) => {
         whileTap={{ scale: 0.98 }}
       >
         Today
+      </motion.button>
+      <motion.button
+        onClick={refreshEvents}
+        className="px-4 py-2 rounded-lg bg-gray-700 hover:bg-gray-600 text-white text-sm font-thin transition-all duration-200 shadow-md flex items-center space-x-2"
+        whileHover={{ scale: 1.05, boxShadow: "0 10px 20px rgba(75, 85, 99, 0.3)" }}
+        whileTap={{ scale: 0.98 }}
+        disabled={loading}
+      >
+        <motion.div
+          animate={loading ? { rotate: 360 } : { rotate: 0 }}
+          transition={loading ? { duration: 1, repeat: Infinity, ease: "linear" } : {}}
+        >
+          <Loader2 className="w-4 h-4" />
+        </motion.div>
+        <span>Sync</span>
       </motion.button>
       <div className="flex bg-gray-800 rounded-lg p-1 shadow-inner-lg">
         {['week', 'month', 'list'].map((view) => (

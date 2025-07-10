@@ -12,4 +12,15 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/save-request', async (req, res) => {
+  try {
+    const lease = new LeaseRequest(req.body);
+    await lease.save();
+    res.status(200).json({ message: "Lease request saved." });
+  } catch (err) {
+    console.error('Error saving lease request:', err);
+    res.status(500).json({ error: "Could not save lease request." });
+  }
+});
+
 module.exports = router;
