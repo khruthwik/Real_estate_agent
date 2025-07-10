@@ -8,7 +8,9 @@ yarn-error.log*
 # Environment variables
 .env
 .env.*
-
+# __pycache__ directories
+__pycache__/
+*.pyc
 # Logs
 logs/
 *.log
