@@ -294,8 +294,7 @@ useEffect(() => {
                           <div className="space-y-2">
                             <div className="flex items-center text-sm">
                               <Mail className="w-4 h-4 mr-2 text-gray-400" />
-                              <span className="text-gray-300">{lease.email}</span>
-                            </div>
+<span className="text-gray-300 truncate max-w-[180px] block">{lease.email}</span>                            </div>
                             <div className="flex items-center text-sm">
                               <Phone className="w-4 h-4 mr-2 text-gray-400" />
                               <span className="text-gray-300">{lease.phone}</span>
@@ -336,11 +335,11 @@ useEffect(() => {
               </div>
             ) : (
               <div>
-              <div className="grid gap-8 sm:grid-cols-1 lg:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 min-h-0">
                 {paginatedLeases.map((lease, idx) => (
                   <div
                     key={lease.id}
-                    className={`group bg-black/40 backdrop-blur-xl rounded-3xl border border-gray-800 p-8 transition-all duration-500 hover:scale-[1.02] hover:bg-black/50 shadow-3xl ${getInterestBorder(lease.interest)} animate-fade-in`}
+                    className={`group bg-black/40 backdrop-blur-xl rounded-3xl border border-gray-800 p-8 transition-all duration-500 hover:scale-[1.02] hover:bg-black/50 shadow-3xl ${getInterestBorder(lease.interest)} animate-fade-in min-w-0 flex flex-col`}
                     style={{ animationDelay: `${idx * 120}ms` }}
                   >
                     {/* Header */}
@@ -350,7 +349,7 @@ useEffect(() => {
                           <User className="w-8 h-8 text-gray-100" />
                         </div>
                         <div>
-                          <h3 className="font-thin text-2xl text-gray-50">{lease.name}</h3>
+                          <h3 className="text-2xl text-gray-300 leading-relaxed line-clamp-1 break-words overflow-hidden">{lease.name}</h3>
                           <p className="text-gray-400 flex items-center text-sm mt-1">
                             <MapPin className="w-4 h-4 mr-1 text-gray-500" />
                             {lease.location}
@@ -377,11 +376,10 @@ useEffect(() => {
                     </div>
 
                     {/* Requirements */}
-                    <div className="mb-6">
+                    <div className="mb-6 flex-1 min-h-0">
                       <div className="flex items-start mb-3">
                         <MessageCircle className="w-6 h-6 text-gray-500 mr-3 mt-1 flex-shrink-0" />
-                        <p className="text-base text-gray-300 leading-relaxed">{lease.summary}</p>
-                      </div>
+<p className="text-base text-gray-300 leading-relaxed line-clamp-2 break-words overflow-hidden">{lease.summary}</p>                      </div>
                     </div>
 
                     {/* Property Details */}
@@ -410,10 +408,10 @@ useEffect(() => {
                     </div>
 
                     {/* Action Button */}
-                    <button className="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl font-thin transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center">
-                      <Calendar className="w-5 h-5 mr-2" />
-                      {lease.action}
-                    </button>
+                    <button className="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl font-thin transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center mt-auto flex-shrink-0">
+  <Calendar className="w-5 h-5 mr-2 flex-shrink-0" />
+  <span className="truncate max-w-[150px]">{lease.action}</span>
+</button>
                   </div>
                 ))}
               </div>

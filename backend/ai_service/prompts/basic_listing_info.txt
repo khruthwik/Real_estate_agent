@@ -1,6 +1,300 @@
 
-6. Title: Modern Loft with City Views,
-   Unique ID: 686b2c2c9f3b5517bee7eaf0,
+21. Title: House with Detached Studio,
+   Uniqueid: 68676601438f594059dfc686,
+   Address: 3-2 Fukasawa, Setagaya-ku, Tokyo,
+   Price: $1,700,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,900,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Unique property featuring a main house and a detached studio unit, perfect for home office or rental income.
+   Image URL: https://picsum.photos/seed/house_setagaya2/600/400
+
+22. Title: Renovated Traditional Home,
+   Uniqueid: 6867660a438f594059dfc688,
+   Address: 7-1 Nishiochiai, Shinjuku-ku, Tokyo,
+   Price: $1,350,000,
+   Type: house,
+   Bedrooms: 4,
+   Bathrooms: 2.5,
+   Sqft: 1,750,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Beautifully renovated traditional Japanese home blending classic charm with modern comforts. Located in a quiet Shinjuku residential area.
+   Image URL: https://picsum.photos/seed/house_shinjuku1/600/400
+
+23. Title: Multi-Generational House,
+   Uniqueid: 68676612438f594059dfc68a,
+   Address: 15-3 Nerima, Nerima-ku, Tokyo,
+   Price: $1,600,000,
+   Type: house,
+   Bedrooms: 6,
+   Bathrooms: 4,
+   Sqft: 2,800,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Large house ideal for multi-generational living, featuring two kitchens and separate living areas. Good access to schools.
+   Image URL: https://picsum.photos/seed/house_nerima1/600/400
+
+24. Title: Riverside House with Deck,
+   Uniqueid: 6867661a438f594059dfc68c,
+   Address: 1-1 Arakawa, Arakawa-ku, Tokyo,
+   Price: $1,050,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,600,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Enjoy tranquil views from this charming riverside house, complete with a spacious outdoor deck perfect for entertaining.
+   Image URL: https://picsum.photos/seed/house_arakawa1/600/400
+
+25. Title: Eco-Friendly Prefab House,
+   Uniqueid: 68676622438f594059dfc68e,
+   Address: 9-1 Tama, Inagi-shi, Tokyo,
+   Price: $880,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,450,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Modern, eco-friendly prefabricated house designed for sustainable living. Features solar panels and excellent insulation.
+   Image URL: https://picsum.photos/seed/house_tama1/600/400
+
+26. Title: Classic Brick House,
+   Uniqueid: 6867662a438f594059dfc690,
+   Address: 6-3 Komaba, Meguro-ku, Tokyo,
+   Price: $1,400,000,
+   Type: house,
+   Bedrooms: 4,
+   Bathrooms: 2.5,
+   Sqft: 1,900,
+   Features:
+     - Pet Friendly: No
+     - Parking: Yes
+   Description: A timeless brick house with a classic design, offering spacious interiors and a charming curb appeal in a desirable Meguro neighborhood.
+   Image URL: https://picsum.photos/seed/house_komaba1/600/400
+
+27. Title: Rural Retreat House,
+   Uniqueid: 68676632438f594059dfc692,
+   Address: 25-1 Okutama, Nishitama-gun, Tokyo,
+   Price: $600,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 1.5,
+   Sqft: 1,300,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Escape the city to this peaceful house nestled in the mountains of Okutama. Ideal for nature lovers and weekend getaways.
+   Image URL: https://picsum.photos/seed/house_okutama1/600/400
+
+28. Title: Designer House with Open Concept,
+   Uniqueid: 6867663d438f594059dfc694,
+   Address: 1-10 Hiroo, Minato-ku, Tokyo,
+   Price: $2,800,000,
+   Type: house,
+   Bedrooms: 5,
+   Bathrooms: 4,
+   Sqft: 3,000,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Exquisite designer house in the prestigious Hiroo district. Features modern open-concept living and high-end finishes throughout.
+   Image URL: https://picsum.photos/seed/house_hiroo1/600/400
+
+29. Title: House with Large Backyard,
+   Uniqueid: 6867664a438f594059dfc696,
+   Address: 10-2 Yoga, Setagaya-ku, Tokyo,
+   Price: $1,300,000,
+   Type: house,
+   Bedrooms: 4,
+   Bathrooms: 2,
+   Sqft: 1,700,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: A delightful house featuring an unusually large backyard, perfect for outdoor activities and entertaining. Quiet and green neighborhood.
+   Image URL: https://picsum.photos/seed/house_yoga1/600/400
+
+30. Title: Compact Urban House,
+   Uniqueid: 68676651438f594059dfc698,
+   Address: 4-1 Kamiitabashi, Itabashi-ku, Tokyo,
+   Price: $750,000,
+   Type: house,
+   Bedrooms: 2,
+   Bathrooms: 1,
+   Sqft: 950,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Efficient and well-maintained urban house, perfect for a small family or couple. Good public transport links nearby.
+   Image URL: None
+
+31. Title: Newly Built Smart Home,
+   Uniqueid: 6867665c438f594059dfc69a,
+   Address: 2-8 Shibuya, Shibuya-ku, Tokyo,
+   Price: $1,950,000,
+   Type: house,
+   Bedrooms: 4,
+   Bathrooms: 3.5,
+   Sqft: 2,100,
+   Features:
+     - Pet Friendly: No
+     - Parking: Yes
+   Description: State-of-the-art smart home located in a prime Shibuya location. Features integrated smart systems and energy-efficient design.
+   Image URL: https://picsum.photos/seed/house_shibuya1/600/400
+
+32. Title: Cozy Suburban House,
+   Uniqueid: 68676669438f594059dfc69c,
+   Address: 7-3 Kichijoji Minamicho, Musashino-shi, Tokyo,
+   Price: $1,100,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,550,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: A comfortable suburban home in a quiet, family-friendly neighborhood, offering a peaceful retreat with good access to local amenities.
+   Image URL: https://picsum.photos/seed/house_kichijoji1/600/400
+
+33. Title: Spacious House with Rooftop Terrace,
+   Uniqueid: 68676672438f594059dfc69e,
+   Address: 5-1 Denenchofu, Ota-ku, Tokyo,
+   Price: $1,800,000,
+   Type: house,
+   Bedrooms: 5,
+   Bathrooms: 3,
+   Sqft: 2,500,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Luxurious house in the prestigious Denenchofu area, boasting expansive living spaces and a stunning rooftop terrace with city views.
+   Image URL: https://picsum.photos/seed/house_denenchofu1/600/400
+
+34. Title: Traditional Japanese House,
+   Uniqueid: 68676679438f594059dfc6a0,
+   Address: 3-7 Yanaka, Taito-ku, Tokyo,
+   Price: $850,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 1.5,
+   Sqft: 1,200,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Experience authentic Japanese living in this charming traditional house in the historic Yanaka district, complete with a small inner garden.
+   Image URL: https://picsum.photos/seed/house_yanaka1/600/400
+
+35. Title: Modern House near Station,
+   Uniqueid: 68676684438f594059dfc6a2,
+   Address: 8-2 Higashinakano, Nakano-ku, Tokyo,
+   Price: $980,000,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,400,
+   Features:
+     - Pet Friendly: No
+     - Parking: Yes
+   Description: Recently renovated modern house just a 5-minute walk from the station, offering convenient access to central Tokyo. Ideal for urban professionals.
+   Image URL: https://picsum.photos/seed/house_nakano1/600/400
+
+36. Title: Charming Family Home with Garden,
+   Uniqueid: 6867668c438f594059dfc6a4,
+   Address: 12-5 Sakura-cho, Setagaya-ku, Tokyo,
+   Price: $1,250,000,
+   Type: house,
+   Bedrooms: 4,
+   Bathrooms: 2.5,
+   Sqft: 1,850,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: A beautiful, spacious family home in a quiet residential area, featuring a large private garden and excellent natural light. Close to parks and highly-rated schools.
+   Image URL: https://picsum.photos/seed/house_setagaya1/600/400
+
+37. Title: India,
+   Uniqueid: 686774c2a68b209108658734,
+   Address: Fujimidai Kunitachi-shi, Tokyo,
+   Price: $2,000,
+   Type: townhouse,
+   Bedrooms: 4,
+   Bathrooms: 3,
+   Sqft: 1,200,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Very beautiful home.
+   Image URL: https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg
+
+38. Title: India 2,
+   Uniqueid: 68677687769b4f6c0ee7c3c0,
+   Address: Red Bridge,
+   Price: $2,000,
+   Type: apartment,
+   Bedrooms: 2,
+   Bathrooms: 1,
+   Sqft: 1,200,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Good house with many rooms and fresh air.
+   Image URL: https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg
+
+39. Title: indian 3,
+   Uniqueid: 68677767d855a9ca8a53f2d7,
+   Address: Black Bridge,
+   Price: $2,000,
+   Type: condo,
+   Bedrooms: 1,
+   Bathrooms: 2,
+   Sqft: 1,200,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Good property with full ac rooms.
+   Image URL: https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg
+
+40. Title: Indian 4,
+   Uniqueid: 6867786b8a9bdae9e54154f0,
+   Address: Red Bridge,
+   Price: $1,000,
+   Type: townhouse,
+   Bedrooms: 1,
+   Bathrooms: 2,
+   Sqft: 1,990,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Very good property with all basic facilities.
+   Image URL: https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg
+
+41. Title: Indian 10,
+   Uniqueid: 686778908a9bdae9e54154f3,
+   Address: black bridge, india.,
+   Price: $100,
+   Type: studio,
+   Bedrooms: 1,
+   Bathrooms: 2,
+   Sqft: 100,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: India is my country.
+   Image URL: https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg
+
+42. Title: Modern Loft with City Views,
+   Uniqueid: 686b2c2c9f3b5517bee7eaf0,
    Address: 456 W 23rd St, New York, NY 10011,
    Price: $4,800,
    Type: apartment,
@@ -13,8 +307,8 @@
    Description: A modern loft in Chelsea with floor-to-ceiling windows and skyline views.
    Image URL: https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg
 
-7. Title: Sunny Studio Near Central Park,
-   Unique ID: 686b2c2c9f3b5517bee7eaf2,
+43. Title: Sunny Studio Near Central Park,
+   Uniqueid: 686b2c2c9f3b5517bee7eaf2,
    Address: 12 E 68th St, New York, NY 10065,
    Price: $2,950,
    Type: studio,
@@ -27,8 +321,8 @@
    Description: Cozy studio with natural light and easy access to the park.
    Image URL: https://images.pexels.com/photos/106399/pexels-photo-106399.jpeg
 
-7. Title: Luxury 3BR in Tribeca,
-   Unique ID: 686b2c2c9f3b5517bee7eaf4,
+44. Title: Luxury 3BR in Tribeca,
+   Uniqueid: 686b2c2c9f3b5517bee7eaf4,
    Address: 88 Leonard St, New York, NY 10013,
    Price: $8,900,
    Type: condo,
@@ -41,22 +335,8 @@
    Description: Spacious condo with doorman, gym, and in-unit laundry.
    Image URL: https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg
 
-9. Title: Greenpoint Garden Home,
-   Unique ID: 686b2c2c9f3b5517bee7eaf8,
-   Address: 136 Greenpoint Ave, Brooklyn, NY 11222,
-   Price: $5,200,
-   Type: house,
-   Bedrooms: 3,
-   Bathrooms: 2,
-   Sqft: 1,420,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: Yes
-   Description: Townhouse with private garden and renovated kitchen.
-   Image URL: https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg
-
-9. Title: 1BR in DUMBO with Waterfront View,
-   Unique ID: 686b2c2c9f3b5517bee7eaf6,
+45. Title: 1BR in DUMBO with Waterfront View,
+   Uniqueid: 686b2c2c9f3b5517bee7eaf6,
    Address: 30 Washington St, Brooklyn, NY 11201,
    Price: $4,100,
    Type: apartment,
@@ -69,22 +349,22 @@
    Description: Charming unit with direct views of Manhattan Bridge.
    Image URL: https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg
 
-9. Title: West Village Historic Studio,
-   Unique ID: 686b2c2c9f3b5517bee7eafc,
-   Address: 75 Bank St, New York, NY 10014,
-   Price: $3,100,
-   Type: studio,
-   Bedrooms: N/A,
-   Bathrooms: 1,
-   Sqft: 500,
+46. Title: Greenpoint Garden Home,
+   Uniqueid: 686b2c2c9f3b5517bee7eaf8,
+   Address: 136 Greenpoint Ave, Brooklyn, NY 11222,
+   Price: $5,200,
+   Type: house,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,420,
    Features:
-     - Pet Friendly: No
-     - Parking: No
-   Description: Exposed brick and quiet tree-lined block.
-   Image URL: https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Townhouse with private garden and renovated kitchen.
+   Image URL: https://images.pexels.com/photos/259962/pexels-photo-259962.jpeg
 
-11. Title: 2BR with Balcony in Williamsburg,
-   Unique ID: 686b2c2c9f3b5517bee7eafa,
+47. Title: 2BR with Balcony in Williamsburg,
+   Uniqueid: 686b2c2c9f3b5517bee7eafa,
    Address: 221 N 9th St, Brooklyn, NY 11211,
    Price: $4,300,
    Type: apartment,
@@ -97,22 +377,22 @@
    Description: Bright and airy unit with balcony and hardwood floors.
    Image URL: https://images.pexels.com/photos/276554/pexels-photo-276554.jpeg
 
-12. Title: UWS Classic 2BR Prewar,
-   Unique ID: 686b2c2c9f3b5517bee7eb00,
-   Address: 212 W 91st St, New York, NY 10024,
-   Price: $4,600,
-   Type: apartment,
-   Bedrooms: 2,
+48. Title: West Village Historic Studio,
+   Uniqueid: 686b2c2c9f3b5517bee7eafc,
+   Address: 75 Bank St, New York, NY 10014,
+   Price: $3,100,
+   Type: studio,
+   Bedrooms: N/A,
    Bathrooms: 1,
-   Sqft: 980,
+   Sqft: 500,
    Features:
-     - Pet Friendly: Yes
+     - Pet Friendly: No
      - Parking: No
-   Description: Spacious layout, crown molding, and hardwood floors.
-   Image URL: https://images.pexels.com/photos/272474/pexels-photo-272474.jpeg
+   Description: Exposed brick and quiet tree-lined block.
+   Image URL: https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg
 
-12. Title: SoHo Artist Loft,
-   Unique ID: 686b2c2c9f3b5517bee7eafe,
+49. Title: SoHo Artist Loft,
+   Uniqueid: 686b2c2c9f3b5517bee7eafe,
    Address: 478 Broadway, New York, NY 10013,
    Price: $7,400,
    Type: loft,
@@ -125,106 +405,22 @@
    Description: High ceilings, wide open space, and natural light.
    Image URL: https://images.pexels.com/photos/1643383/pexels-photo-1643383.jpeg
 
-15. Title: Bushwick Industrial Loft,
-   Unique ID: 686b2c2c9f3b5517bee7eb08,
-   Address: 500 Johnson Ave, Brooklyn, NY 11237,
-   Price: $3,600,
-   Type: loft,
-   Bedrooms: 1,
+50. Title: UWS Classic 2BR Prewar,
+   Uniqueid: 686b2c2c9f3b5517bee7eb00,
+   Address: 212 W 91st St, New York, NY 10024,
+   Price: $4,600,
+   Type: apartment,
+   Bedrooms: 2,
    Bathrooms: 1,
-   Sqft: 1,000,
+   Sqft: 980,
    Features:
      - Pet Friendly: Yes
      - Parking: No
-   Description: Authentic industrial loft with high ceilings and large windows, popular among artists.
-   Image URL: https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg
+   Description: Spacious layout, crown molding, and hardwood floors.
+   Image URL: https://images.pexels.com/photos/272474/pexels-photo-272474.jpeg
 
-15. Title: Fort Greene Historic 1BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb06,
-   Address: 120 S Portland Ave, Brooklyn, NY 11217,
-   Price: $3,900,
-   Type: apartment,
-   Bedrooms: 1,
-   Bathrooms: 1,
-   Sqft: 750,
-   Features:
-     - Pet Friendly: No
-     - Parking: No
-   Description: Charming 1-bedroom in a classic Fort Greene brownstone, near Fort Greene Park.
-   Image URL: https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg
-
-15. Title: Midtown East 1BR with Doorman,
-   Unique ID: 686b2c2c9f3b5517bee7eb0c,
-   Address: 300 E 54th St, New York, NY 10022,
-   Price: $4,000,
-   Type: apartment,
-   Bedrooms: 1,
-   Bathrooms: 1,
-   Sqft: 680,
-   Features:
-     - Pet Friendly: No
-     - Parking: No
-   Description: Elegant 1-bedroom in a full-service doorman building, close to UN.
-   Image URL: https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg
-
-15. Title: Harlem Duplex Apartment,
-   Unique ID: 686b2c2c9f3b5517bee7eb0a,
-   Address: 200 W 135th St, New York, NY 10030,
-   Price: $5,300,
-   Type: apartment,
-   Bedrooms: 3,
-   Bathrooms: 2,
-   Sqft: 1,600,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Spacious duplex with modern renovations, perfect for families or roommates.
-   Image URL: https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg
-
-14. Title: Queensboro Plaza Studio,
-   Unique ID: 686b2c2c9f3b5517bee7eb04,
-   Address: 27-01 42nd Rd, Long Island City, NY 11101,
-   Price: $2,600,
-   Type: studio,
-   Bedrooms: N/A,
-   Bathrooms: 1,
-   Sqft: 510,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Compact studio steps from multiple subway lines, ideal for commuters.
-   Image URL: https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg
-
-15. Title: Chelsea Art Gallery View Studio,
-   Unique ID: 686b2c2c9f3b5517bee7eb10,
-   Address: 525 W 26th St, New York, NY 10001,
-   Price: $3,300,
-   Type: studio,
-   Bedrooms: N/A,
-   Bathrooms: 1,
-   Sqft: 530,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Bright studio overlooking High Line and art galleries, perfect for creative individuals.
-   Image URL: https://images.pexels.com/photos/1643393/pexels-photo-1643393.jpeg
-
-15. Title: Upper West Side Renovated 1BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb14,
-   Address: 150 W 79th St, New York, NY 10024,
-   Price: $3,950,
-   Type: apartment,
-   Bedrooms: 1,
-   Bathrooms: 1,
-   Sqft: 700,
-   Features:
-     - Pet Friendly: No
-     - Parking: No
-   Description: Newly renovated 1-bedroom in a well-maintained pre-war building, close to Museum of Natural History.
-   Image URL: https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg
-
-15. Title: New 1BR in East Harlem,
-   Unique ID: 686b2c2c9f3b5517bee7eb02,
+51. Title: New 1BR in East Harlem,
+   Uniqueid: 686b2c2c9f3b5517bee7eb02,
    Address: 2225 Lexington Ave, New York, NY 10035,
    Price: $2,800,
    Type: apartment,
@@ -237,22 +433,78 @@
    Description: Modern appliances and laundry in building.
    Image URL: https://images.pexels.com/photos/276528/pexels-photo-276528.jpeg
 
-15. Title: NoHo Designer Loft,
-   Unique ID: 686b2c2c9f3b5517bee7eb12,
-   Address: 30 Great Jones St, New York, NY 10012,
-   Price: $7,800,
-   Type: loft,
-   Bedrooms: 2,
-   Bathrooms: 2,
-   Sqft: 1,800,
+52. Title: Queensboro Plaza Studio,
+   Uniqueid: 686b2c2c9f3b5517bee7eb04,
+   Address: 27-01 42nd Rd, Long Island City, NY 11101,
+   Price: $2,600,
+   Type: studio,
+   Bedrooms: N/A,
+   Bathrooms: 1,
+   Sqft: 510,
    Features:
      - Pet Friendly: Yes
      - Parking: No
-   Description: Exquisitely designed loft in NoHo with high-end finishes and open layout.
-   Image URL: https://images.pexels.com/photos/166060/pexels-photo-166060.jpeg
+   Description: Compact studio steps from multiple subway lines, ideal for commuters.
+   Image URL: https://images.pexels.com/photos/1457842/pexels-photo-1457842.jpeg
 
-15. Title: Astoria 2BR Garden Unit,
-   Unique ID: 686b2c2c9f3b5517bee7eb0e,
+53. Title: Fort Greene Historic 1BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb06,
+   Address: 120 S Portland Ave, Brooklyn, NY 11217,
+   Price: $3,900,
+   Type: apartment,
+   Bedrooms: 1,
+   Bathrooms: 1,
+   Sqft: 750,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Charming 1-bedroom in a classic Fort Greene brownstone, near Fort Greene Park.
+   Image URL: https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg
+
+54. Title: Bushwick Industrial Loft,
+   Uniqueid: 686b2c2c9f3b5517bee7eb08,
+   Address: 500 Johnson Ave, Brooklyn, NY 11237,
+   Price: $3,600,
+   Type: loft,
+   Bedrooms: 1,
+   Bathrooms: 1,
+   Sqft: 1,000,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Authentic industrial loft with high ceilings and large windows, popular among artists.
+   Image URL: https://images.pexels.com/photos/206172/pexels-photo-206172.jpeg
+
+55. Title: Harlem Duplex Apartment,
+   Uniqueid: 686b2c2c9f3b5517bee7eb0a,
+   Address: 200 W 135th St, New York, NY 10030,
+   Price: $5,300,
+   Type: apartment,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,600,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Spacious duplex with modern renovations, perfect for families or roommates.
+   Image URL: https://images.pexels.com/photos/1105754/pexels-photo-1105754.jpeg
+
+56. Title: Midtown East 1BR with Doorman,
+   Uniqueid: 686b2c2c9f3b5517bee7eb0c,
+   Address: 300 E 54th St, New York, NY 10022,
+   Price: $4,000,
+   Type: apartment,
+   Bedrooms: 1,
+   Bathrooms: 1,
+   Sqft: 680,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Elegant 1-bedroom in a full-service doorman building, close to UN.
+   Image URL: https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg
+
+57. Title: Astoria 2BR Garden Unit,
+   Uniqueid: 686b2c2c9f3b5517bee7eb0e,
    Address: 31-01 30th Ave, Astoria, NY 11102,
    Price: $3,400,
    Type: apartment,
@@ -265,106 +517,50 @@
    Description: Ground floor 2-bedroom with access to a shared garden, ideal for pet owners.
    Image URL: https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg
 
-16. Title: Brooklyn Heights Condo,
-   Unique ID: 686b2c2c9f3b5517bee7eb18,
-   Address: 100 Clark St, Brooklyn, NY 11201,
-   Price: $4,900,
-   Type: condo,
-   Bedrooms: 2,
-   Bathrooms: 2,
-   Sqft: 1,050,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: Yes
-   Description: Modern condo with amenities in a prime Brooklyn Heights location.
-   Image URL: https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg
-
-21. Title: Times Square Studio,
-   Unique ID: 686b2c2c9f3b5517bee7eb1a,
-   Address: 150 W 47th St, New York, NY 10036,
-   Price: $3,500,
+58. Title: Chelsea Art Gallery View Studio,
+   Uniqueid: 686b2c2c9f3b5517bee7eb10,
+   Address: 525 W 26th St, New York, NY 10001,
+   Price: $3,300,
    Type: studio,
    Bedrooms: N/A,
    Bathrooms: 1,
-   Sqft: 500,
+   Sqft: 530,
    Features:
-     - Pet Friendly: No
+     - Pet Friendly: Yes
      - Parking: No
-   Description: Vibrant studio in the heart of Times Square, ideal for quick city access.
-   Image URL: https://images.pexels.com/photos/3735706/pexels-photo-3735706.jpeg
+   Description: Bright studio overlooking High Line and art galleries, perfect for creative individuals.
+   Image URL: https://images.pexels.com/photos/1643393/pexels-photo-1643393.jpeg
 
-22. Title: Park Slope Charming 1BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb1c,
-   Address: 100 8th Ave, Brooklyn, NY 11215,
-   Price: $3,200,
+59. Title: NoHo Designer Loft,
+   Uniqueid: 686b2c2c9f3b5517bee7eb12,
+   Address: 30 Great Jones St, New York, NY 10012,
+   Price: $7,800,
+   Type: loft,
+   Bedrooms: 2,
+   Bathrooms: 2,
+   Sqft: 1,800,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Exquisitely designed loft in NoHo with high-end finishes and open layout.
+   Image URL: https://images.pexels.com/photos/166060/pexels-photo-166060.jpeg
+
+60. Title: Upper West Side Renovated 1BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb14,
+   Address: 150 W 79th St, New York, NY 10024,
+   Price: $3,950,
    Type: apartment,
    Bedrooms: 1,
    Bathrooms: 1,
    Sqft: 700,
    Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Charming 1-bedroom on a tree-lined street in desirable Park Slope.
-   Image URL: https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg
-
-23. Title: Washington Heights Spacious 3BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb1e,
-   Address: 500 W 177th St, New York, NY 10033,
-   Price: $4,200,
-   Type: apartment,
-   Bedrooms: 3,
-   Bathrooms: 2,
-   Sqft: 1,300,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Large family-friendly apartment with abundant natural light and spacious rooms.
-   Image URL: https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg
-
-24. Title: Flatiron District Corner 1BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb22,
-   Address: 200 5th Ave, New York, NY 10010,
-   Price: $4,700,
-   Type: apartment,
-   Bedrooms: 1,
-   Bathrooms: 1,
-   Sqft: 850,
-   Features:
      - Pet Friendly: No
      - Parking: No
-   Description: Bright corner unit with large windows overlooking iconic Flatiron buildings.
-   Image URL: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg
+   Description: Newly renovated 1-bedroom in a well-maintained pre-war building, close to Museum of Natural History.
+   Image URL: https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg
 
-24. Title: Long Island City New Development 2BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb20,
-   Address: 45-05 23rd St, Long Island City, NY 11101,
-   Price: $5,200,
-   Type: condo,
-   Bedrooms: 2,
-   Bathrooms: 2,
-   Sqft: 1,150,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: Yes
-   Description: Brand new condo with modern finishes and city views, full amenity building.
-   Image URL: https://images.pexels.com/photos/1457845/pexels-photo-1457845.jpeg
-
-25. Title: East Flatbush Spacious 2BR,
-   Unique ID: 686b2c2c9f3b5517bee7eb28,
-   Address: 123 Martense St, Brooklyn, NY 11226,
-   Price: $2,500,
-   Type: apartment,
-   Bedrooms: 2,
-   Bathrooms: 1,
-   Sqft: 950,
-   Features:
-     - Pet Friendly: No
-     - Parking: No
-   Description: Affordable and spacious 2-bedroom in a lively East Flatbush neighborhood.
-   Image URL: https://images.pexels.com/photos/276714/pexels-photo-276714.jpeg
-
-26. Title: Lower East Side Penthouse,
-   Unique ID: 686b2c2c9f3b5517bee7eb16,
+61. Title: Lower East Side Penthouse,
+   Uniqueid: 686b2c2c9f3b5517bee7eb16,
    Address: 100 Rivington St, New York, NY 10002,
    Price: $6,000,
    Type: penthouse,
@@ -377,8 +573,92 @@
    Description: Stunning penthouse with private rooftop access and panoramic city views.
    Image URL: https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg
 
-24. Title: Riverdale 3BR with Balcony,
-   Unique ID: 686b2c2c9f3b5517bee7eb24,
+62. Title: Brooklyn Heights Condo,
+   Uniqueid: 686b2c2c9f3b5517bee7eb18,
+   Address: 100 Clark St, Brooklyn, NY 11201,
+   Price: $4,900,
+   Type: condo,
+   Bedrooms: 2,
+   Bathrooms: 2,
+   Sqft: 1,050,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Modern condo with amenities in a prime Brooklyn Heights location.
+   Image URL: https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg
+
+63. Title: Times Square Studio,
+   Uniqueid: 686b2c2c9f3b5517bee7eb1a,
+   Address: 150 W 47th St, New York, NY 10036,
+   Price: $3,500,
+   Type: studio,
+   Bedrooms: N/A,
+   Bathrooms: 1,
+   Sqft: 500,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Vibrant studio in the heart of Times Square, ideal for quick city access.
+   Image URL: https://images.pexels.com/photos/3735706/pexels-photo-3735706.jpeg
+
+64. Title: Park Slope Charming 1BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb1c,
+   Address: 100 8th Ave, Brooklyn, NY 11215,
+   Price: $3,200,
+   Type: apartment,
+   Bedrooms: 1,
+   Bathrooms: 1,
+   Sqft: 700,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Charming 1-bedroom on a tree-lined street in desirable Park Slope.
+   Image URL: https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg
+
+65. Title: Washington Heights Spacious 3BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb1e,
+   Address: 500 W 177th St, New York, NY 10033,
+   Price: $4,200,
+   Type: apartment,
+   Bedrooms: 3,
+   Bathrooms: 2,
+   Sqft: 1,300,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Large family-friendly apartment with abundant natural light and spacious rooms.
+   Image URL: https://images.pexels.com/photos/279746/pexels-photo-279746.jpeg
+
+66. Title: Long Island City New Development 2BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb20,
+   Address: 45-05 23rd St, Long Island City, NY 11101,
+   Price: $5,200,
+   Type: condo,
+   Bedrooms: 2,
+   Bathrooms: 2,
+   Sqft: 1,150,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: Yes
+   Description: Brand new condo with modern finishes and city views, full amenity building.
+   Image URL: https://images.pexels.com/photos/1457845/pexels-photo-1457845.jpeg
+
+67. Title: Flatiron District Corner 1BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb22,
+   Address: 200 5th Ave, New York, NY 10010,
+   Price: $4,700,
+   Type: apartment,
+   Bedrooms: 1,
+   Bathrooms: 1,
+   Sqft: 850,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Bright corner unit with large windows overlooking iconic Flatiron buildings.
+   Image URL: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg
+
+68. Title: Riverdale 3BR with Balcony,
+   Uniqueid: 686b2c2c9f3b5517bee7eb24,
    Address: 3000 Henry Hudson Pkwy, Bronx, NY 10463,
    Price: $4,000,
    Type: apartment,
@@ -391,22 +671,8 @@
    Description: Spacious apartment with a private balcony and river views in a quiet Bronx neighborhood.
    Image URL: https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg
 
-30. Title: NoLita Bright Studio,
-   Unique ID: 686b2c2c9f3b5517bee7eb2a,
-   Address: 200 Kenmare St, New York, NY 10012,
-   Price: $3,100,
-   Type: studio,
-   Bedrooms: N/A,
-   Bathrooms: 1,
-   Sqft: 480,
-   Features:
-     - Pet Friendly: Yes
-     - Parking: No
-   Description: Sun-drenched studio in trendy NoLita, steps away from cafes and boutiques.
-   Image URL: https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg
-
-24. Title: Cobble Hill Garden Unit,
-   Unique ID: 686b2c2c9f3b5517bee7eb26,
+69. Title: Cobble Hill Garden Unit,
+   Uniqueid: 686b2c2c9f3b5517bee7eb26,
    Address: 150 Congress St, Brooklyn, NY 11201,
    Price: $4,500,
    Type: apartment,
@@ -419,3 +685,30 @@
    Description: Beautiful garden apartment with exclusive outdoor space in charming Cobble Hill.
    Image URL: https://images.pexels.com/photos/271624/pexels-photo-271624.jpeg
 
+70. Title: East Flatbush Spacious 2BR,
+   Uniqueid: 686b2c2c9f3b5517bee7eb28,
+   Address: 123 Martense St, Brooklyn, NY 11226,
+   Price: $2,500,
+   Type: apartment,
+   Bedrooms: 2,
+   Bathrooms: 1,
+   Sqft: 950,
+   Features:
+     - Pet Friendly: No
+     - Parking: No
+   Description: Affordable and spacious 2-bedroom in a lively East Flatbush neighborhood.
+   Image URL: https://images.pexels.com/photos/276714/pexels-photo-276714.jpeg
+
+71. Title: NoLita Bright Studio,
+   Uniqueid: 686b2c2c9f3b5517bee7eb2a,
+   Address: 200 Kenmare St, New York, NY 10012,
+   Price: $3,100,
+   Type: studio,
+   Bedrooms: N/A,
+   Bathrooms: 1,
+   Sqft: 480,
+   Features:
+     - Pet Friendly: Yes
+     - Parking: No
+   Description: Sun-drenched studio in trendy NoLita, steps away from cafes and boutiques.
+   Image URL: https://images.pexels.com/photos/271743/pexels-photo-271743.jpeg

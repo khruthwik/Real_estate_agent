@@ -143,10 +143,7 @@ export default function SearchBroker() {
     const userMsg = messageText || inbox;
     if (!userMsg.trim() || isLoading) return;
 
-    setMsgLog(prevLog => {
-      const updatedLog = prevLog.map(msg => msg.from === 'bot' ? { ...msg, matches: [] } : msg);
-      return [...updatedLog, { from: 'user', text: userMsg }];
-    });
+   setMsgLog(prevLog => [...prevLog, { from: 'user', text: userMsg }]);
 
     setInbox('');
     setIsLoading(true);
@@ -172,10 +169,22 @@ export default function SearchBroker() {
     // Flatten prev in case it contains nested arrays
     const flatPrev = prev.flat();
     
-    // Filter out duplicates and add new matches
+    // Create a Set to track seen property IDs
+    const seenIds = new Set();
     
+    // Filter out duplicates from existing + new matches
+    const allProperties = [...flatPrev, ...matches];
+    const uniqueProperties = allProperties.filter(property => {
+      const id = property.Uniqueid;
+      console.log('Checking property ID:', id);
+      if (seenIds.has(id)) {
+        return false;
+      }
+      seenIds.add(id);
+      return true;
+    });
     
-    return [...flatPrev, ...matches]; // Keep last 10
+    return uniqueProperties; // Keep last 10 unique properties
   });
 }
     } catch (err) {
@@ -244,6 +253,10 @@ export default function SearchBroker() {
     if (!user) return console.log("User not logged in.");
     setPendingProfile({ ...profile, name: user.name, email: user.email, phone: user.phone });
     setIsConfirmingProfile(true);
+
+    setTimeout(() => {
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  }, 100);
   };
 
   const handleProfileEdit = (field, value) => {
@@ -391,12 +404,9 @@ export default function SearchBroker() {
                     className="w-full h-full object-cover"
                   />
                 ) : (
-                  <div className="w-full h-full bg-gray-700 flex items-center justify-center">
-                    <svg className="w-5 h-5 text-gray-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
-                    </svg>
-                  </div>
+                  <div className="w-full h-full flex items-center justify-center">
+                                <Home className="w-16 h-16 text-gray-600" />
+                              </div>
                 )}
               </div>
               
