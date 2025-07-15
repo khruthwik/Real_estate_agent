@@ -38,7 +38,7 @@ def handle_response(data):
             print("Error message:", data["error_message"])
 
 # 🔁 Replace with your actual API key
-your_api_key = "AIzaSyDzjprTk7UVCyNIV_JRybu-Dlz9y35zIN8"
+your_api_key = ""
 
 test_geocoding_api(your_api_key)
 test_directions_api(your_api_key)
