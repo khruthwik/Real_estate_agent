@@ -1,0 +1,66 @@
+"listing_60": {
+    "Title": "Upper West Side Renovated 1BR",
+    "Uniqueid": "686b2c2c9f3b5517bee7eb14",
+    "Address": "150 W 79th St, New York, NY 10024",
+    "Price": "$3,950",
+    "Type": "apartment",
+    "Bedrooms": 3,
+    "Bathrooms": 2,
+    "Sqft": 700,
+    "Features": {
+      "Pet Friendly": "No",
+      "Parking": "No"
+    },
+    "Description": "Newly renovated 1-bedroom in a well-maintained pre-war building, close to Museum of Natural History.",
+    "Image URL": "https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg",
+    "Nearby Amenities": [
+      "American Museum of Natural History",
+      "Central Park",
+      "Zabar's (gourmet food store)",
+      "81st Street subway (B, C lines)"
+    ]
+  },
+  "listing_61": {
+    "Title": "Lower East Side Penthouse",
+    "Uniqueid": "686b2c2c9f3b5517bee7eb16",
+    "Address": "100 Rivington St, New York, NY 10002",
+    "Price": "$6,000",
+    "Type": "penthouse",
+    "Bedrooms": 3,
+    "Bathrooms": 2,
+    "Sqft": 1100,
+    "Features": {
+      "Pet Friendly": "Yes",
+      "Parking": "No"
+    },
+    "Description": "Stunning penthouse with private rooftop access and panoramic city views.",
+    "Image URL": "https://images.pexels.com/photos/101808/pexels-photo-101808.jpeg",
+    "Nearby Amenities": [
+      "Essex Market",
+      "Trendy bars and nightlife",
+      "Art galleries and street art",
+      "Delancey Street-Essex Street subway (F, M, J, Z lines)"
+    ]
+  },
+  "listing_62": {
+    "Title": "Brooklyn Heights Condo",
+    "Uniqueid": "686b2c2c9f3b5517bee7eb18",
+    "Address": "100 Clark St, Brooklyn, NY 11201",
+    "Price": "$4,900",
+    "Type": "condo",
+    "Bedrooms": 3,
+    "Bathrooms": 2,
+    "Sqft": 1050,
+    "Features": {
+      "Pet Friendly": "Yes",
+      "Parking": "Yes"
+    },
+    "Description": "Modern condo with amenities in a prime Brooklyn Heights location.",
+    "Image URL": "https://images.pexels.com/photos/279719/pexels-photo-279719.jpeg",
+    "Nearby Amenities": [
+      "Brooklyn Heights Promenade",
+      "Cadman Plaza Park",
+      "Boutique shops and cafes",
+      "Clark Street subway (2, 3 lines)"
+    ]
+  },

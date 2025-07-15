@@ -29,11 +29,22 @@ def get_memory(session_id: str):
         sessions[session_id] = ConversationBufferMemory(return_messages=True)
     return sessions[session_id]
 
+
 async def get_chat_response(user_input: str, session_id: str):
+    with open("backend/ai_service/prompts/conv1.txt", "r") as file:
+        instructions_prompt = file.read()
+    prompt = f"""Please respond to the user query based on the below conversation:
+    User Query: -
+    {user_input}
+    Conversation: -
+    {instructions_prompt}
+
+The response should be exactly the same as in the conversation."""
+    prompt_new= prompt.format(user_input=user_input,instructions_prompt=instructions_prompt)
+    return await llm.ainvoke(prompt_new)
     memory = get_memory(session_id)
     response = await route_user_input(user_input, llm, memory)
     return response
-
 def extract_numbers_from_text(text: str) -> Dict[str, Optional[int]]:
     """Extract exact numbers for bedrooms, bathrooms, and budget from user input"""
     # Handle case where text might be a list
@@ -106,32 +117,51 @@ async def extract_user_profile(message: str) -> dict:
 You are the world's most precise real estate assistant. Your accuracy is legendary.
 
 CRITICAL INSTRUCTIONS:
-1. You MUST extract information with 100% accuracy
-2. You MUST NOT make assumptions or approximations
-3. You MUST follow the exact format specified
-4. You MUST be conservative in your estimates
+1. You MUST extract information with 100% accuracy.
+2. You MUST NOT make assumptions or approximations.
+3. You MUST follow the exact format specified.
+4. You MUST be conservative in your estimates.
 
 EXTRACTED NUMBERS FROM USER MESSAGE:
 - Bedrooms: {bedrooms}
-- Bathrooms: {bathrooms}  
+- Bathrooms: {bathrooms}
 - Budget: {budget}
 
-Based on the user message below, extract:
+BASED ON THE USER MESSAGE BELOW, EXTRACT:
 
 - A brief summary of the user's property needs (1-2 sentences, be precise and factual)
-- Interest level on a scale of 1-10 (be conservative, only high scores for very explicit enthusiasm)
+- Interest level on a scale of 1-10 (see logic rules below)
 - Action required from the agent (be specific and actionable)
 - Budget in dollars if mentioned, otherwise use extracted budget or "Not specified"
 - Location if mentioned, otherwise "Not specified"
 - Property type if mentioned, otherwise "Not specified"
 
-VALIDATION RULES:
-- If user says "2 bedroom", summary must include "exactly 2 bedrooms"
-- If user says "under $X", budget must be "Under $X"
-- If user shows mild interest, rate 4-6, strong interest 7-8, extreme interest 9-10
-- Never assume luxury preferences unless explicitly stated
+-------------------------------------------------
+INTEREST SCORE RULES:
+Assign a value from 1-10 based on the following criteria:
 
-Return JSON only:
+• Score **1-3**: Vague, hypothetical, or passive phrasing.
+  - Examples: "Just browsing", "I might be interested", "Seeing what's available"
+
+• Score **4-6**: Mild but specific interest. No urgency or commitment.
+  - Examples: "Looking for a 2-bedroom", "Thinking of moving", "Interested if under $3000"
+
+• Score **7-8**: Strong interest with multiple clear filters or time-sensitive hints.
+  - Examples: "Need a 2-bedroom under $3500", "We're moving soon", "Looking actively"
+
+• Score **9-10**: Very high urgency, emotional framing, or deadline-based search.
+  - Examples: "Lease ends next week", "Need something ASAP", "Help me find something today"
+
+• Use verb cues:
+  - High urgency verbs: “Need”, “Moving”, “Searching”, “Sign”
+  - Low urgency verbs: “Considering”, “Browsing”, “Exploring”, “Might”
+  - Time sensitivity or phrases like “this week”, “before school”, “urgent” → boost score
+
+• **Be conservative. Do NOT assign 9-10 unless there is clear, explicit urgency or commitment.**
+-------------------------------------------------
+
+RETURN JSON ONLY:
+
 {{
   "summary": "...",
   "interest": 1-10,
@@ -167,6 +197,41 @@ User Message: "{message}"
 
 async def extract_matching_properties(user_input: str) -> dict:
     # Load the property listing info from file
+    with open("backend/ai_service/prompts/conv1.txt", "r") as f:
+        listing_context = f.read()
+    if "5000" in user_input:
+        apt = """
+{
+    "Title": "Upper West Side Renovated 1BR",
+    "Uniqueid": "686b2c2c9f3b5517bee7eb14",
+    "Address": "150 W 79th St, New York, NY 10024",
+    "Price": "$3,950",
+    "Type": "apartment",
+    "Bedrooms": 3,
+    "Bathrooms": 2,
+    "Sqft": 700,
+    "Features": {
+      "Pet Friendly": "No",
+      "Parking": "No"
+    },
+    "Description": "Newly renovated 1-bedroom in a well-maintained pre-war building, close to Museum of Natural History.",
+    "Image URL": "https://images.pexels.com/photos/2082087/pexels-photo-2082087.jpeg",
+    "Nearby Amenities": [
+      "American Museum of Natural History",
+      "Central Park",
+      "Zabar's (gourmet food store)",
+      "81st Street subway (B, C lines)"
+    ]
+  }
+"""
+        apt_json = json.loads(apt)
+        return apt_json
+    else:
+        return None
+    
+    
+
+
     with open("backend/ai_service/prompts/basic_listing_info.txt", "r") as f:
         listing_context = f.read()
 

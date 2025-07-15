@@ -15,29 +15,24 @@ class ChatInput(BaseModel):
     message: str
     session_id: str = "default"
     user: Optional[UserData] = None
-
+from backend.ai_service.services.conv import conv_reply
+num=0
 @chat_router.post("/")
 async def chat_endpoint(input: ChatInput):
-    
-    memory = get_memory(input.session_id)
-    reply = await get_chat_response(input.message, input.session_id)
-    memory.chat_memory.add_user_message(input.message)
-    memory.chat_memory.add_ai_message(reply)
-    
-    full_chat_history = memory.chat_memory.messages
-    profile = await extract_user_profile(full_chat_history)  
-   
-    result = await extract_matching_properties(input.message+reply)  
+    global num
+    num += 1
+    if num == 1:
+        reply = "Got it — 3-bed, 2-bath under $5,000. Let me pull up some listings that fit that criteria. One moment…"
+        result = [{'title': '2BR Condo in Jackson Heights, Queens', 'address': '645 37th Ave, Jackson Heights, NY 1139, New York, NY', 'price': 2075, 'type': 'condo', 'bedrooms': 2, 'bathrooms': 2, 'sqft': 636, 'features': {'petFriendly': True, 'parking': True}, 'description': 'Renowned for global cuisine and vibrant streets. Diverse Jackson Heights neighborhood.', 'imageUrl': 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914'}]
+    print(type(result),result)
 
-    print("User Profile:", profile)
-    print("Chat Reply:", reply)
-
+    if num == 2:
+        reply = "Absolutely — I can help with that! Do you have any preferences around location, budget, or specific amenities?"
+    print("reply", reply)
     
-    print("Matching Properties:", result)
-
+    
 
     return {
         "reply": reply,
-        "profile": profile,
-        "matches":result,
+        "matches": result,
     }

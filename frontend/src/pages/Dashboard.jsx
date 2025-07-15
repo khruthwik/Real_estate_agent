@@ -126,7 +126,6 @@ useEffect(() => {
     { icon: FilePlus, label: 'Manage Properties', path: '/add-property' },
     { icon: Home, label: 'Property Portfolio', path: '/property-portfolio' },
     { icon: Calendar, label: 'Calendar', path: '/calendar' },
-    { icon: TrendingUp, label: 'Revenue Reports', path: '/revenue-reports' }
   ];
 
   useEffect(() => {
@@ -218,7 +217,7 @@ useEffect(() => {
               
               <div className="flex items-center space-x-4">
                 <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 w-5 h-5" />
+                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white w-5 h-5" />
                   <input
                     type="text"
                     value={search}
@@ -308,7 +307,6 @@ useEffect(() => {
                               <span className="px-3 py-1 bg-gray-800 text-gray-200 rounded-full text-xs font-thin border border-gray-700">
                                 {lease.propertyType}
                               </span>
-                              <span className="text-gray-200 font-thin text-base">{lease.budget}</span>
                             </div>
                           </div>
                         </td>
@@ -335,7 +333,7 @@ useEffect(() => {
               </div>
             ) : (
               <div>
-              <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 min-h-0">
+              <div className="grid gap-8 grid-cols-1 md:grid-cols-2 xl:grid-cols-3 max-h-full">
                 {paginatedLeases.map((lease, idx) => (
                   <div
                     key={lease.id}
@@ -345,22 +343,18 @@ useEffect(() => {
                     {/* Header */}
                     <div className="flex items-center justify-between mb-6">
                       <div className="flex items-center">
-                        <div className="w-16 h-16 bg-gray-700 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-105 transition-transform duration-300 shadow-inner">
-                          <User className="w-8 h-8 text-gray-100" />
+                        <div className="w-16 h-16 bg-gray-500/30 border border-gray-700 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-105 transition-transform duration-300 shadow-inner">
+                          <User className="w-9 h-9 text-gray-300 font-thin" />
                         </div>
                         <div>
-                          <h3 className="text-2xl text-gray-300 leading-relaxed line-clamp-1 break-words overflow-hidden">{lease.name}</h3>
+                          <h3 className="text-2xl text-gray-300 leading-relaxed line-clamp-1 break-words font-extralight overflow-hidden">{lease.name}</h3>
                           <p className="text-gray-400 flex items-center text-sm mt-1">
                             <MapPin className="w-4 h-4 mr-1 text-gray-500" />
                             {lease.location}
                           </p>
                         </div>
                       </div>
-                      <div className="text-right">
-                        <div className={`px-4 py-1 rounded-full text-xs font-thin ${getInterestColor(lease.interest)} shadow-md`}>
-                          {lease.interest}/10
-                        </div>
-                      </div>
+                    
                     </div>
 
                     {/* Contact Info */}
@@ -399,16 +393,16 @@ useEffect(() => {
                           <span className="text-gray-100 font-thin">{lease.interest}/10</span>
                         </div>
                       </div>
-                      <div className="w-full bg-gray-700 rounded-full h-3">
+                      <div className="w-full bg-gray-600 rounded-full h-3">
                         <div
-                          className={`h-3 rounded-full ${getInterestColor(lease.interest).split(' ')[0]} transition-all duration-1000`}
+                          className={`h-3 bg-gray-300 rounded-full ${getInterestColor(lease.interest).split(' ')[0]} transition-all duration-1000`}
                           style={{ width: `${lease.interest * 10}%` }}
                         ></div>
                       </div>
                     </div>
 
                     {/* Action Button */}
-                    <button className="w-full py-4 bg-gray-700 hover:bg-gray-600 text-white rounded-2xl font-thin transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center mt-auto flex-shrink-0">
+                    <button className="w-full py-4 bg-black/40 border border-gray-800 hover:bg-gray-600 text-white rounded-2xl font-thin transition-all duration-300 transform hover:scale-[1.02] shadow-xl flex items-center justify-center mt-auto flex-shrink-0">
   <Calendar className="w-5 h-5 mr-2 flex-shrink-0" />
   <span className="truncate max-w-[150px]">{lease.action}</span>
 </button>
@@ -421,7 +415,7 @@ useEffect(() => {
       <button
         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
         disabled={currentPage === 1}
-        className="flex items-center px-4 py-2 bg-gray-700 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl font-thin transition-all duration-300 disabled:cursor-not-allowed"
+        className="flex items-center px-4 py-2 bg-black/40 hover:bg-gray-600 disabled:bg-gray-800 disabled:text-gray-500 text-white rounded-xl font-thin transition-all duration-300 disabled:cursor-not-allowed"
       >
         <ChevronLeft className="w-4 h-4 mr-1" />
         Previous
@@ -434,8 +428,8 @@ useEffect(() => {
             onClick={() => setCurrentPage(i + 1)}
             className={`w-10 h-10 rounded-xl font-thin transition-all duration-300 ${
               currentPage === i + 1
-                ? 'bg-gray-600 text-white'
-                : 'bg-gray-800 text-gray-300 hover:bg-gray-700'
+                ? 'bg-gray-800 text-gray-300 hover:bg-gray-700 '
+                : 'bg-black/40 border border-gray-800 text-white'
             }`}
           >
             {i + 1}
